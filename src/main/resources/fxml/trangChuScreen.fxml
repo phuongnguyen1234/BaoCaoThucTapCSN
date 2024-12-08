@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <BorderPane prefHeight="900.0" prefWidth="1600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <left>
+                  <AnchorPane prefHeight="900.0" prefWidth="300.0" styleClass="nav-form" stylesheets="@../css/trangChuCSS.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane prefHeight="162.0" prefWidth="300.0" styleClass="header">
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="75.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../../../Downloads/coffee-cup.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="WHITE" layoutX="59.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quản lí cà phê ABC">
+                                 <font>
+                                    <Font name="Open Sans Semibold" size="20.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                        <Button layoutX="71.0" layoutY="838.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="160.0" styleClass="logout-btn" text="Đăng xuất" textFill="WHITE" AnchorPane.bottomAnchor="14.0">
+                           <graphic>
+                              <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../../../Downloads/arrow%20(1).png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="Open Sans Semibold" size="16.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <ImageView fitHeight="130.0" fitWidth="130.0" layoutX="85.0" layoutY="659.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="111.0">
+                           <image>
+                              <Image url="@../../../../../../../../Downloads/profile.png" />
+                           </image>
+                        </ImageView>
+                        <Text fill="WHITE" layoutX="23.0" layoutY="817.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;tên người dùng&gt;" textAlignment="CENTER" wrappingWidth="255.076171875" AnchorPane.bottomAnchor="77.140625">
+                           <font>
+                              <Font name="Open Sans Semibold" size="20.0" />
+                           </font>
+                        </Text>
+                        <VBox layoutX="14.0" layoutY="213.0" prefHeight="250.0" prefWidth="275.0" spacing="15.0">
+                           <children>
+                              <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="293.0" styleClass="function-btn" text="Thực đơn" textFill="WHITE">
+                                 <graphic>
+                                    <ImageView fitHeight="38.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../../../../Downloads/coffee%20(1).png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Open Sans Semibold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="339.0" styleClass="function-btn" text="Đơn hàng" textFill="WHITE">
+                                 <graphic>
+                                    <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../../../../Downloads/file.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Open Sans Semibold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="363.0" styleClass="function-btn" text="Nhân viên" textFill="WHITE">
+                                 <graphic>
+                                    <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../../../../Downloads/audience.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Open Sans Semibold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="371.0" styleClass="function-btn" text="Bảng lương" textFill="WHITE">
+                                 <graphic>
+                                    <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../../../../Downloads/salary.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Open Sans Semibold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="358.0" styleClass="function-btn" text="Phân tích hoạt động" textFill="WHITE">
+                                 <graphic>
+                                    <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../../../../Downloads/growth.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Open Sans Semibold" size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <BorderPane prefHeight="900.0" prefWidth="1300.0" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="550.0" stylesheets="@../css/quanLiHoSoCSS.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox layoutX="75.0" layoutY="57.0" prefHeight="744.0" prefWidth="345.0" spacing="10.0" AnchorPane.bottomAnchor="56.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="205.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label prefWidth="227.0" styleClass="info-label" text="Thông tin cá nhân" textFill="#246861">
+               <font>
+                  <Font name="Open Sans Semibold" size="25.0" />
+               </font>
+            </Label>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mã nhân viên:" wrappingWidth="341.1328125">
+               <font>
+                  <Font name="Open Sans Semibold" size="20.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tên nhân viên:" wrappingWidth="341.1328125">
+               <font>
+                  <Font name="Open Sans Semibold" size="20.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Giới tính:" wrappingWidth="341.1328125">
+               <font>
+                  <Font name="Open Sans Semibold" size="20.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày sinh:" wrappingWidth="341.1328125">
+               <font>
+                  <Font name="Open Sans Semibold" size="20.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Quê quán:" wrappingWidth="341.1328125">
+               <font>
+                  <Font name="Open Sans Semibold" size="20.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Địa chỉ:" wrappingWidth="341.1328125">
+               <font>
+                  <Font name="Open Sans Semibold" size="20.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Số điện thoại:" wrappingWidth="341.1328125">
+               <font>
+                  <Font name="Open Sans Semibold" size="20.0" />
+               </font>
+            </Text>
+            <Label styleClass="info-label" text="Thông tin việc làm" textFill="#246861">
+               <font>
+                  <Font name="Open Sans Semibold" size="25.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Loại nhân viên" wrappingWidth="341.1328125">
+               <font>
+                  <Font name="Open Sans Semibold" size="20.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vị trí:" wrappingWidth="341.1328125">
+               <font>
+                  <Font name="Open Sans Semibold" size="20.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Thời gian vào làm:" wrappingWidth="341.1328125">
+               <font>
+                  <Font name="Open Sans Semibold" size="20.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mức lương:" wrappingWidth="341.1328125">
+               <font>
+                  <Font name="Open Sans Semibold" size="20.0" />
+               </font>
+            </Text>
+            <Label styleClass="info-label" text="Thông tin đăng nhập" textFill="#246861">
+               <font>
+                  <Font name="Open Sans Semibold" size="25.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" wrappingWidth="341.1328125">
+               <font>
+                  <Font name="Open Sans Semibold" size="20.0" />
+               </font>
+            </Text>
+            <HBox prefHeight="29.0" prefWidth="335.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mật khẩu:" wrappingWidth="294.1328125">
+                     <font>
+                        <Font name="Open Sans Semibold" size="20.0" />
+                     </font>
+                  </Text>
+                  <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../../../Downloads/eye.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </HBox>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Quyền truy cập:" wrappingWidth="341.1328125">
+               <font>
+                  <Font name="Open Sans Semibold" size="20.0" />
+               </font>
+            </Text>
+         </children>
+         <padding>
+            <Insets left="10.0" top="10.0" />
+         </padding>
+      </VBox>
+      <ImageView fitHeight="240.0" fitWidth="180.0" layoutX="356.0" layoutY="14.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../../../../../../Downloads/profile.png" />
+         </image></ImageView>
+      <HBox layoutX="384.0" layoutY="265.0" prefHeight="18.0" prefWidth="115.0" spacing="10.0">
+         <children>
+            <Circle fill="#4caf50" radius="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;trạng thái&gt;">
+               <font>
+                  <Font name="Open Sans Semibold" size="16.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+      <Button layoutX="223.0" layoutY="743.0" mnemonicParsing="false" styleClass="btn" stylesheets="@../css/quanLiHoSoCSS.css" text="Quay lại" textFill="WHITE">
+         <font>
+            <Font name="Open Sans Semibold" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

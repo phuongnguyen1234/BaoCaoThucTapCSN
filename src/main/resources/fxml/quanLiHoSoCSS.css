@@ -1,0 +1,37 @@
+.white-bg{
+    -fx-background-color: #fff;
+}
+
+.radius{
+    -fx-background-radius: 8px;
+}
+
+.transparent{
+    -fx-background-color: transparent;
+}
+
+.shadow{
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 5, 0, 0, 0);
+}
+
+.btn{
+    -fx-background-color: linear-gradient(to bottom right, #098c53, #246861);
+}
+
+.btn:hover{
+    -fx-background-color: linear-gradient(to bottom right, #0fb565, #399a8f);
+}
+
+.info-label{
+    -fx-border-color: #286155;
+    -fx-border-width: 0 0 0 3px;
+    -fx-padding: 0 0 0 5px;
+}
+
+.font-size-18{
+    -fx-font-size: 18px;
+}
+
+.font-family{
+    -fx-font-family: "Open Sans";
+}

@@ -1,0 +1,25 @@
+.white-bg{
+    -fx-background-color: #fff;
+}
+
+.radius{
+    -fx-background-radius: 8px;
+}
+
+.transparent{
+    -fx-background-color: transparent;
+}
+
+.shadow{
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 5, 0, 0, 0);
+}
+
+.stat-box{
+    -fx-background-color: linear-gradient(to bottom right, #098c53, #246861);
+    -fx-background-radius: 10px;
+}
+
+.chart-title{
+    -fx-font-size: 20px;
+    -fx-font-family: "Open Sans Semibold";
+}
