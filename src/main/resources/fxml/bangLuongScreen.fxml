@@ -15,16 +15,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" stylesheets="@../css/bangLuongCSS.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" stylesheets="@bangLuongCSS.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutY="25.0" prefHeight="150.0" prefWidth="1300.0" stylesheets="@../css/bangLuongCSS.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutY="25.0" prefHeight="150.0" prefWidth="1300.0" stylesheets="@bangLuongCSS.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Text layoutX="14.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bảng lương">
                <font>
                   <Font name="Open Sans Semibold" size="40.0" />
                </font>
             </Text>
-            <Button layoutX="14.0" layoutY="91.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="197.0" styleClass="btn" stylesheets="@../css/donHangCSS.css" text="Tạo bảng lương" textFill="WHITE" AnchorPane.leftAnchor="14.0">
+            <Button layoutX="14.0" layoutY="91.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="197.0" styleClass="btn" text="Tạo bảng lương" textFill="WHITE" AnchorPane.leftAnchor="14.0">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>
@@ -57,7 +57,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ComboBox>
-                  <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="61.0" styleClass="btn" stylesheets="@../css/donHangCSS.css" text="Lọc" textFill="WHITE">
+                  <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="61.0" styleClass="btn" stylesheets="@bangLuongCSS.css" text="Lọc" textFill="WHITE">
                      <font>
                         <Font name="Open Sans Semibold" size="20.0" />
                      </font>
@@ -74,11 +74,11 @@
             <String fx:value="shadow" />
          </styleClass>
       </AnchorPane>
-      <ScrollPane layoutX="38.0" layoutY="185.0" prefHeight="715.0" prefWidth="1300.0" stylesheets="@../css/quanLiHoSoCSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="185.0">
+      <ScrollPane layoutX="38.0" layoutY="185.0" prefHeight="715.0" prefWidth="1300.0" stylesheets="@bangLuongCSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="185.0">
          <content>
             <VBox prefHeight="110.0" prefWidth="1285.0">
                <children>
-                  <TableView prefHeight="61.0" prefWidth="1285.0" stylesheets="@../css/bangLuongCSS.css">
+                  <TableView prefHeight="61.0" prefWidth="1285.0" stylesheets="@bangLuongCSS.css">
                     <columns>
                       <TableColumn editable="false" prefWidth="100.0" resizable="false" text="Mã bảng lương" />
                         <TableColumn editable="false" prefWidth="133.0" resizable="false" text="Tên nhân viên" />
@@ -98,7 +98,7 @@
                   </TableView>
                   <HBox alignment="CENTER" prefHeight="49.0" prefWidth="1294.0" spacing="5.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="btn" stylesheets="@../css/donHangCSS.css" text="&lt;" textFill="WHITE">
+                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="btn" stylesheets="@bangLuongCSS.css" text="&lt;" textFill="WHITE">
                            <font>
                               <Font name="Open Sans Semibold" size="18.0" />
                            </font>
@@ -111,7 +111,7 @@
                               <Font name="Open Sans Semibold" size="20.0" />
                            </font>
                         </Text>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="btn" stylesheets="@../css/donHangCSS.css" text="&gt;" textFill="WHITE">
+                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="btn" stylesheets="@bangLuongCSS.css" text="&gt;" textFill="WHITE">
                            <font>
                               <Font name="Open Sans Semibold" size="18.0" />
                            </font>

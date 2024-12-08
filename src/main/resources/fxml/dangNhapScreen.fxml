@@ -15,7 +15,7 @@
          <children>
             <ImageView fitHeight="220.0" fitWidth="218.0" layoutX="91.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../Downloads/coffee-cup.png" />
+                  <Image url="@../icons/coffee-cup.png" />
                </image>
             </ImageView>
             <Text fill="WHITE" layoutX="86.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quản lí cà phê ABC">
@@ -34,7 +34,7 @@
             </Text>
             <TextField layoutX="25.0" layoutY="243.0" prefHeight="40.0" prefWidth="350.0" promptText="Email đăng nhập" styleClass="textfield" stylesheets="@dangNhapCSS.css">
                <font>
-                  <Font name="Open Sans Semibold" size="14.0" />
+                  <Font name="Open Sans" size="14.0" />
                </font>
             </TextField>
             <Button layoutX="25.0" layoutY="346.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="350.0" styleClass="login-btn" stylesheets="@dangNhapCSS.css" text="Đăng nhập" textFill="WHITE">
@@ -44,7 +44,7 @@
             </Button>
             <PasswordField layoutX="25.0" layoutY="294.0" prefHeight="40.0" prefWidth="350.0" promptText="Mật khẩu" styleClass="textfield" stylesheets="@dangNhapCSS.css">
                <font>
-                  <Font name="Open Sans Semibold" size="14.0" />
+                  <Font name="Open Sans" size="14.0" />
                </font>
             </PasswordField>
          </children>

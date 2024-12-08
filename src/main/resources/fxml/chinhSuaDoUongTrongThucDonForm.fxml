@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="500.0" stylesheets="@thucDonCSS.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox layoutX="134.0" layoutY="47.0" prefHeight="300.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -68,10 +68,10 @@
                      <children>
                         <ImageView fitHeight="140.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../../../Downloads/coffee.png" />
+                              <Image url="@../icons/coffee.png" />
                            </image>
                         </ImageView>
-                        <Button mnemonicParsing="false" styleClass="btn" stylesheets="@../css/thucDonCSS.css" text="Chọn hình ảnh" textFill="WHITE">
+                        <Button mnemonicParsing="false" styleClass="btn" text="Chọn hình ảnh" textFill="WHITE">
                            <font>
                               <Font name="Open Sans Semibold" size="16.0" />
                            </font>
@@ -85,7 +85,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="106.0" prefWidth="500.0" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" styleClass="btn" stylesheets="@../css/thucDonCSS.css" text="Cập nhật" textFill="WHITE">
+                  <Button mnemonicParsing="false" styleClass="btn" text="Cập nhật" textFill="WHITE">
                      <font>
                         <Font name="Open Sans Semibold" size="20.0" />
                      </font>
@@ -93,7 +93,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button mnemonicParsing="false" styleClass="btn" stylesheets="@../css/thucDonCSS.css" text="Quay lại" textFill="WHITE">
+                  <Button mnemonicParsing="false" styleClass="btn" text="Quay lại" textFill="WHITE">
                      <font>
                         <Font name="Open Sans Semibold" size="20.0" />
                      </font>

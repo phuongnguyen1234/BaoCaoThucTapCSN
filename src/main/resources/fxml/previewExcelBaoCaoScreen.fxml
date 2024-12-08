@@ -9,10 +9,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@donHangCSS.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ScrollPane layoutX="70.0" layoutY="51.0" prefHeight="525.0" prefWidth="900.0" stylesheets="@../css/donHangCSS.css" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ScrollPane layoutX="70.0" layoutY="51.0" prefHeight="525.0" prefWidth="900.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <content>
             <TableView prefHeight="83.0" prefWidth="898.0">
               <columns>
@@ -27,7 +26,7 @@
       </ScrollPane>
       <HBox layoutX="317.0" layoutY="543.0" prefHeight="27.0" prefWidth="267.0" spacing="10.0">
          <children>
-            <Button mnemonicParsing="false" styleClass="btn" stylesheets="@../css/thucDonCSS.css" text="Xuất báo cáo" textFill="WHITE">
+            <Button mnemonicParsing="false" styleClass="btn" text="Xuất báo cáo" textFill="WHITE">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>
@@ -35,7 +34,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button mnemonicParsing="false" styleClass="btn" stylesheets="@../css/thucDonCSS.css" text="Quay lại" textFill="WHITE">
+            <Button mnemonicParsing="false" styleClass="btn" text="Quay lại" textFill="WHITE">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>

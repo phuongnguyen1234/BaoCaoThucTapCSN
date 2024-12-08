@@ -17,16 +17,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" stylesheets="@donHangCSS.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutY="25.0" prefHeight="150.0" prefWidth="1300.0" stylesheets="@../css/donHangCSS.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutY="25.0" prefHeight="150.0" prefWidth="1300.0" stylesheets="@donHangCSS.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Text layoutX="14.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Đơn hàng">
                <font>
                   <Font name="Open Sans Semibold" size="40.0" />
                </font>
             </Text>
-            <Button layoutX="1149.0" layoutY="101.0" mnemonicParsing="false" styleClass="btn" stylesheets="@../css/donHangCSS.css" text="Xuất báo cáo" textFill="WHITE" AnchorPane.rightAnchor="14.0">
+            <Button layoutX="1149.0" layoutY="100.0" mnemonicParsing="false" styleClass="btn" text="Xuất báo cáo" textFill="WHITE" AnchorPane.rightAnchor="14.0">
                <font>
                   <Font name="Open Sans Semibold" size="18.0" />
                </font>
@@ -39,8 +39,8 @@
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>
             </Text>
-            <DatePicker layoutX="118.0" layoutY="101.0" prefHeight="37.0" prefWidth="187.0" promptText="1/1/2024" AnchorPane.leftAnchor="118.0" />
-            <Button layoutX="305.0" layoutY="101.0" mnemonicParsing="false" styleClass="btn" stylesheets="@../css/donHangCSS.css" text="Lọc" textFill="WHITE" AnchorPane.leftAnchor="305.0">
+            <DatePicker layoutX="118.0" layoutY="100.0" prefHeight="40.0" prefWidth="187.0" promptText="1/1/2024" AnchorPane.leftAnchor="118.0" />
+            <Button layoutX="305.0" layoutY="100.0" mnemonicParsing="false" prefHeight="40.0" styleClass="btn" text="Lọc" textFill="WHITE" AnchorPane.leftAnchor="305.0">
                <font>
                   <Font name="Open Sans Semibold" size="18.0" />
                </font>
@@ -48,19 +48,19 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <TextField layoutX="525.0" layoutY="98.0" prefHeight="40.0" promptText="DH00001" AnchorPane.leftAnchor="525.0">
+            <TextField layoutX="525.0" layoutY="100.0" prefHeight="40.0" promptText="DH00001" AnchorPane.leftAnchor="525.0">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>
             </TextField>
-            <Button contentDisplay="GRAPHIC_ONLY" layoutX="776.0" layoutY="100.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="btn" stylesheets="@../css/donHangCSS.css" AnchorPane.leftAnchor="776.0">
+            <Button contentDisplay="GRAPHIC_ONLY" layoutX="776.0" layoutY="100.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="btn" AnchorPane.leftAnchor="776.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../../../Downloads/magnifying-glass.png" />
+                        <Image url="@../icons/magnifying-glass.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -76,7 +76,7 @@
          <content>
             <VBox prefHeight="110.0" prefWidth="1285.0">
                <children>
-                  <TableView prefHeight="61.0" prefWidth="1285.0" stylesheets="@../css/donHangCSS.css">
+                  <TableView prefHeight="61.0" prefWidth="1285.0">
                     <columns>
                       <TableColumn prefWidth="75.0" text="STT" />
                       <TableColumn prefWidth="248.0" text="Mã đơn hàng" />
@@ -88,7 +88,7 @@
                   </TableView>
                   <HBox alignment="CENTER" prefHeight="49.0" prefWidth="1294.0" spacing="5.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="btn" stylesheets="@../css/donHangCSS.css" text="&lt;" textFill="WHITE">
+                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="btn" text="&lt;" textFill="WHITE">
                            <font>
                               <Font name="Open Sans Semibold" size="18.0" />
                            </font>
@@ -101,7 +101,7 @@
                               <Font name="Open Sans Semibold" size="20.0" />
                            </font>
                         </Text>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="btn" stylesheets="@../css/donHangCSS.css" text="&gt;" textFill="WHITE">
+                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="btn" text="&gt;" textFill="WHITE">
                            <font>
                               <Font name="Open Sans Semibold" size="18.0" />
                            </font>

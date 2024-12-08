@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="550.0" stylesheets="@../css/quanLiHoSoCSS.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="550.0" stylesheets="@quanLiHoSoCSS.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox layoutX="75.0" layoutY="57.0" prefHeight="744.0" prefWidth="345.0" spacing="10.0" AnchorPane.bottomAnchor="56.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="205.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -109,7 +109,7 @@
                      <graphic>
                         <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../../../Downloads/eye.png" />
+                              <Image url="@../icons/eye.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -131,7 +131,7 @@
       </VBox>
       <ImageView fitHeight="240.0" fitWidth="180.0" layoutX="356.0" layoutY="14.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../../../../../../Downloads/profile.png" />
+            <Image url="@../icons/profile.png" />
          </image></ImageView>
       <HBox layoutX="384.0" layoutY="265.0" prefHeight="18.0" prefWidth="115.0" spacing="10.0">
          <children>
@@ -143,7 +143,7 @@
             </Text>
          </children>
       </HBox>
-      <Button layoutX="223.0" layoutY="743.0" mnemonicParsing="false" styleClass="btn" stylesheets="@../css/quanLiHoSoCSS.css" text="Quay lại" textFill="WHITE">
+      <Button layoutX="223.0" layoutY="743.0" mnemonicParsing="false" styleClass="btn" text="Quay lại" textFill="WHITE">
          <font>
             <Font name="Open Sans Semibold" size="20.0" />
          </font>

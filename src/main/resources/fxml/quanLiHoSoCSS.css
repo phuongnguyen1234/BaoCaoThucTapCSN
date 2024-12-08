@@ -35,3 +35,27 @@
 .font-family{
     -fx-font-family: "Open Sans";
 }
+
+.table-view{
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-border-color: linear-gradient(to bottom right, #0f6789, #286155);
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 5px;
+}
+
+.table-view .column-header-background{
+    -fx-background-color: linear-gradient(to bottom right, #0f6789, #286155);
+    -fx-border-radius: 5px;
+    -fx-background-inset: 0 0 0 0;
+}
+
+.table-view .column-header, .filter{
+    -fx-background-color: transparent;
+    -fx-size: 30px;
+}
+
+.table-view .column-header .label{
+    -fx-font-size: 14px;
+    -fx-text-fill: #fff;
+}

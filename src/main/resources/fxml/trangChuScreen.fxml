@@ -11,19 +11,19 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" stylesheets="@trangChuCSS.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
             <BorderPane prefHeight="900.0" prefWidth="1600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <left>
-                  <AnchorPane prefHeight="900.0" prefWidth="300.0" styleClass="nav-form" stylesheets="@../css/trangChuCSS.css" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="900.0" prefWidth="300.0" styleClass="nav-form" BorderPane.alignment="CENTER">
                      <children>
                         <AnchorPane prefHeight="162.0" prefWidth="300.0" styleClass="header">
                            <children>
                               <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="75.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../../../../../Downloads/coffee-cup.png" />
+                                    <Image url="@../icons/coffee-cup.png" />
                                  </image>
                               </ImageView>
                               <Text fill="WHITE" layoutX="59.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quản lí cà phê ABC">
@@ -37,7 +37,7 @@
                            <graphic>
                               <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../../../../../Downloads/arrow%20(1).png" />
+                                    <Image url="@../icons/arrow%20(1).png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -50,7 +50,7 @@
                         </Button>
                         <ImageView fitHeight="130.0" fitWidth="130.0" layoutX="85.0" layoutY="659.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="111.0">
                            <image>
-                              <Image url="@../../../../../../../../Downloads/profile.png" />
+                              <Image url="@../icons/profile.png" />
                            </image>
                         </ImageView>
                         <Text fill="WHITE" layoutX="23.0" layoutY="817.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;tên người dùng&gt;" textAlignment="CENTER" wrappingWidth="255.076171875" AnchorPane.bottomAnchor="77.140625">
@@ -64,7 +64,7 @@
                                  <graphic>
                                     <ImageView fitHeight="38.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../../../../../Downloads/coffee%20(1).png" />
+                                          <Image url="@../icons/coffee%20(1).png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -76,7 +76,7 @@
                                  <graphic>
                                     <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../../../../../Downloads/file.png" />
+                                          <Image url="@../icons/file.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -88,7 +88,7 @@
                                  <graphic>
                                     <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../../../../../Downloads/audience.png" />
+                                          <Image url="@../icons/audience.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -100,7 +100,7 @@
                                  <graphic>
                                     <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../../../../../Downloads/salary.png" />
+                                          <Image url="@../icons/salary.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -112,7 +112,7 @@
                                  <graphic>
                                     <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../../../../../Downloads/growth.png" />
+                                          <Image url="@../icons/growth.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
