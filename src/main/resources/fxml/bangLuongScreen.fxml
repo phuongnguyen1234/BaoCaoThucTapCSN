@@ -17,6 +17,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" stylesheets="@bangLuongCSS.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
    <children>
+   <!--phan dau-->
       <AnchorPane layoutY="25.0" prefHeight="150.0" prefWidth="1300.0" stylesheets="@bangLuongCSS.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Text layoutX="14.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bảng lương">
@@ -24,6 +25,8 @@
                   <Font name="Open Sans Semibold" size="40.0" />
                </font>
             </Text>
+
+            <!--nut tao bang luong-->
             <Button layoutX="14.0" layoutY="91.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="197.0" styleClass="btn" text="Tạo bảng lương" textFill="WHITE" AnchorPane.leftAnchor="14.0">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
@@ -32,6 +35,8 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+
+            <!--nut loc thoi gian-->
             <HBox alignment="CENTER" layoutX="879.0" layoutY="93.0" prefHeight="43.0" prefWidth="407.0" spacing="10.0">
                <children>
                   <Label prefHeight="48.0" prefWidth="95.0" text="Thời gian:">
@@ -39,6 +44,7 @@
                         <Font name="Open Sans Semibold" size="20.0" />
                      </font>
                   </Label>
+
                   <ComboBox prefHeight="37.0" prefWidth="115.0" promptText="Tháng">
                      <styleClass>
                         <String fx:value="font-size-18" />
@@ -48,6 +54,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ComboBox>
+
                   <ComboBox prefHeight="37.0" prefWidth="105.0" promptText="Năm">
                      <styleClass>
                         <String fx:value="font-size-18" />
@@ -57,6 +64,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ComboBox>
+
                   <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="61.0" styleClass="btn" stylesheets="@bangLuongCSS.css" text="Lọc" textFill="WHITE">
                      <font>
                         <Font name="Open Sans Semibold" size="20.0" />
@@ -74,28 +82,30 @@
             <String fx:value="shadow" />
          </styleClass>
       </AnchorPane>
+
+      <!--phan than-->
       <ScrollPane layoutX="38.0" layoutY="185.0" prefHeight="715.0" prefWidth="1300.0" stylesheets="@bangLuongCSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="185.0">
          <content>
             <VBox prefHeight="110.0" prefWidth="1285.0">
                <children>
+
+               <!--bang du lieu-->
                   <TableView prefHeight="61.0" prefWidth="1285.0" stylesheets="@bangLuongCSS.css">
                     <columns>
-                      <TableColumn editable="false" prefWidth="100.0" resizable="false" text="Mã bảng lương" />
-                        <TableColumn editable="false" prefWidth="133.0" resizable="false" text="Tên nhân viên" />
-                        <TableColumn editable="false" prefWidth="109.0" resizable="false" text="Loại nhân viên" />
-                        <TableColumn editable="false" prefWidth="99.0" resizable="false" text="Vị trí" />
-                        <TableColumn editable="false" prefWidth="78.0" resizable="false" text="Tháng" />
-                        <TableColumn editable="false" prefWidth="72.0" resizable="false" text="Ngày công" />
-                        <TableColumn prefWidth="87.0" text="Nghỉ có công" />
-                        <TableColumn prefWidth="111.0" text="Nghỉ không công" />
-                        <TableColumn prefWidth="90.0" text="Giờ làm thêm" />
-                        <TableColumn prefWidth="79.0" text="Đơn đã tạo" />
-                        <TableColumn prefWidth="127.0" text="Thưởng doanh thu" />
-                        <TableColumn prefWidth="109.0" text="Lương thực nhận" />
-                        <TableColumn prefWidth="57.0" text="Ghi chú" />
-                        <TableColumn prefWidth="32.0" text="action" />
+                      <TableColumn editable="false" prefWidth="155.0" resizable="false" text="Mã bảng lương" />
+                        <TableColumn editable="false" prefWidth="153.0" resizable="false" text="Tên nhân viên" />
+                        <TableColumn editable="false" prefWidth="91.0" resizable="false" text="Tháng" />
+                        <TableColumn editable="false" prefWidth="79.0" resizable="false" text="Ngày công" />
+                        <TableColumn prefWidth="95.0" text="Nghỉ có công" />
+                        <TableColumn prefWidth="122.0" text="Nghỉ không công" />
+                        <TableColumn prefWidth="132.0" text="Thưởng doanh thu" />
+                        <TableColumn prefWidth="144.0" text="Lương thực nhận" />
+                        <TableColumn prefWidth="158.0" text="Ghi chú" />
+                        <TableColumn prefWidth="154.0" text="action" />
                     </columns>
                   </TableView>
+
+                  <!--nut phan trang-->
                   <HBox alignment="CENTER" prefHeight="49.0" prefWidth="1294.0" spacing="5.0">
                      <children>
                         <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="btn" stylesheets="@bangLuongCSS.css" text="&lt;" textFill="WHITE">

@@ -17,6 +17,8 @@
             <Font name="Open Sans Semibold" size="30.0" />
          </font>
       </Text>
+
+      <!--nội dung hóa đơn-->
       <VBox layoutX="14.0" layoutY="55.0" prefHeight="312.0" prefWidth="570.0" spacing="5.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mã đơn hàng:" wrappingWidth="557.255859375">
@@ -24,16 +26,20 @@
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>
             </Text>
+
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nhân viên tạo đơn:" wrappingWidth="547.111328125">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>
             </Text>
+
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Thời gian tạo đơn:" wrappingWidth="485.423828125">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>
             </Text>
+
+            <!--chi tiết hóa đơn-->
             <TableView prefHeight="118.0" prefWidth="570.0">
               <columns>
                 <TableColumn prefWidth="34.0" text="STT" />
@@ -44,13 +50,18 @@
                   <TableColumn prefWidth="98.0" text="Tạm tính" />
               </columns>
             </TableView>
+
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tổng tiền:" wrappingWidth="485.423828125">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>
             </Text>
+
+            <!--nút thanh toán thành công và quay lại-->
             <HBox alignment="CENTER" prefHeight="54.0" prefWidth="570.0" spacing="10.0">
                <children>
+
+               <!--nút thanh toán thành công-->
                   <Button mnemonicParsing="false" styleClass="btn" text="Thanh toán thành công" textFill="WHITE">
                      <font>
                         <Font name="Open Sans Semibold" size="20.0" />
@@ -59,6 +70,8 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
+
+                  <!--nút quay lại-->
                   <Button mnemonicParsing="false" styleClass="btn" text="Quay lại" textFill="WHITE">
                      <font>
                         <Font name="Open Sans Semibold" size="20.0" />

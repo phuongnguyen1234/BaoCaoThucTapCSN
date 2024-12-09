@@ -23,12 +23,16 @@
       <AnchorPane prefHeight="900.0" prefWidth="600.0" stylesheets="@thucDonCSS.css" BorderPane.alignment="CENTER">
          <children>
             <AnchorPane layoutX="19.0" layoutY="5.0" prefHeight="885.0" prefWidth="577.0" stylesheets="@thucDonCSS.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="5.0">
+               
+               <!--tao don hang-->
                <children>
                   <Text layoutX="206.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Đơn hàng">
                      <font>
                         <Font name="Open Sans Semibold" size="40.0" />
                      </font>
                   </Text>
+
+                  <!--table don hang-->
                   <TableView prefHeight="624.0" prefWidth="550.0" stylesheets="@thucDonCSS.css" AnchorPane.bottomAnchor="143.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="77.0">
                     <columns>
                       <TableColumn editable="false" prefWidth="117.0" sortable="false" text="Tên" />
@@ -39,6 +43,7 @@
                         <TableColumn editable="false" prefWidth="56.0" sortable="false" text="action" />
                     </columns>
                   </TableView>
+
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tổng tiền:" AnchorPane.bottomAnchor="94.67578125" AnchorPane.leftAnchor="14.0">
                      <font>
                         <Font name="Open Sans Semibold" size="25.0" />
@@ -54,12 +59,15 @@
                   </Button>
                </children>
             </AnchorPane>
+
             <Separator layoutX="11.0" layoutY="11.0" orientation="VERTICAL" prefHeight="879.0" prefWidth="7.0" />
          </children>
       </AnchorPane>
    </right>
    <center>
       <AnchorPane prefHeight="640.0" prefWidth="700.0" styleClass="white-bg" stylesheets="@thucDonCSS.css" BorderPane.alignment="CENTER">
+
+         <!--phan dau-->
          <children>
             <AnchorPane prefHeight="150.0" prefWidth="700.0" stylesheets="@thucDonCSS.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
@@ -68,12 +76,17 @@
                         <Font name="Open Sans Semibold" size="40.0" />
                      </font>
                   </Text>
+
                   <Text layoutX="14.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bộ lọc:">
                      <font>
                         <Font name="Open Sans Semibold" size="20.0" />
                      </font>
                   </Text>
+
+                  <!--nut bo loc danh muc-->
                   <ComboBox layoutX="85.0" layoutY="109.0" prefHeight="35.0" prefWidth="200.0" promptText="Tất cả" visibleRowCount="5" />
+
+                  <!--nut them do uong vao thuc don-->
                   <Button alignment="CENTER" contentDisplay="CENTER" layoutX="605.0" layoutY="95.0" mnemonicParsing="false" styleClass="btn" text="Thêm" textFill="WHITE" AnchorPane.rightAnchor="14.0">
                      <font>
                         <Font name="Open Sans Semibold" size="20.0" />
@@ -83,6 +96,7 @@
                      </cursor>
                   </Button>
                </children>
+
                <styleClass>
                   <String fx:value="radius" />
                   <String fx:value="white-bg" />
@@ -90,15 +104,23 @@
                </styleClass>
             </AnchorPane>
             <Separator layoutY="162.0" prefHeight="10.0" prefWidth="700.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+
+            <!--phần thân-->
             <ScrollPane layoutY="180.0" prefHeight="720.0" prefWidth="700.0" styleClass="white-bg" stylesheets="@thucDonCSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="180.0">
                <content>
+
+               <!--vbox chứa tên danh mục và grid pane cho các loại cà phê danh mục đó-->
                   <VBox prefHeight="175.0" prefWidth="698.0" styleClass="vbox" stylesheets="@thucDonCSS.css">
                      <children>
+
+                     <!--tên danh mục-->
                         <Label prefHeight="43.0" prefWidth="178.0" styleClass="category-label" text="&lt;tên danh mục&gt;" textFill="#246861">
                            <font>
                               <Font name="Open Sans Semibold" size="22.0" />
                            </font>
                         </Label>
+
+                     <!--grid cà phê-->
                         <GridPane>
                           <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

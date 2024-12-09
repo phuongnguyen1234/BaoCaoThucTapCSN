@@ -12,6 +12,8 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane prefHeight="600.0" prefWidth="400.0" styleClass="gradient" stylesheets="@dangNhapCSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         
+         <!--phan ben trai-->
          <children>
             <ImageView fitHeight="220.0" fitWidth="218.0" layoutX="91.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -25,6 +27,8 @@
             </Text>
          </children>
       </AnchorPane>
+
+      <!--phan ben phai-->
       <AnchorPane layoutX="400.0" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Text fill="#286155" layoutX="127.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Đăng nhập">
@@ -32,16 +36,22 @@
                   <Font name="Open Sans Semibold" size="28.0" />
                </font>
             </Text>
+
+            <!--text field email-->
             <TextField layoutX="25.0" layoutY="243.0" prefHeight="40.0" prefWidth="350.0" promptText="Email đăng nhập" styleClass="textfield" stylesheets="@dangNhapCSS.css">
                <font>
                   <Font name="Open Sans" size="14.0" />
                </font>
             </TextField>
+
+            <!--nut dang nhap-->
             <Button layoutX="25.0" layoutY="346.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="350.0" styleClass="login-btn" stylesheets="@dangNhapCSS.css" text="Đăng nhập" textFill="WHITE">
                <font>
                   <Font name="Open Sans Semibold" size="18.0" />
                </font>
             </Button>
+
+            <!--password field-->
             <PasswordField layoutX="25.0" layoutY="294.0" prefHeight="40.0" prefWidth="350.0" promptText="Mật khẩu" styleClass="textfield" stylesheets="@dangNhapCSS.css">
                <font>
                   <Font name="Open Sans" size="14.0" />

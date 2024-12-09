@@ -15,6 +15,8 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" stylesheets="@quanLiHoSoCSS.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
    <children>
+
+   <!--phần đầu-->
       <AnchorPane layoutY="25.0" prefHeight="150.0" prefWidth="1300.0" stylesheets="@quanLiHoSoCSS.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Text layoutX="14.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nhân viên">
@@ -22,6 +24,8 @@
                   <Font name="Open Sans Semibold" size="40.0" />
                </font>
             </Text>
+
+            <!--nút thêm nhân viên-->
             <Button layoutX="14.0" layoutY="91.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="197.0" styleClass="btn" text="Thêm nhân viên" textFill="WHITE" AnchorPane.leftAnchor="14.0">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
@@ -30,6 +34,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+
          </children>
          <styleClass>
             <String fx:value="radius" />
@@ -37,10 +42,14 @@
             <String fx:value="shadow" />
          </styleClass>
       </AnchorPane>
+
+      <!--phần thân-->
       <ScrollPane layoutX="38.0" layoutY="185.0" prefHeight="715.0" prefWidth="1300.0" stylesheets="@quanLiHoSoCSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="185.0">
          <content>
             <VBox prefHeight="110.0" prefWidth="1285.0" stylesheets="@quanLiHoSoCSS.css">
                <children>
+
+               <!--bảng dữ liệu-->
                   <TableView prefHeight="61.0" prefWidth="1285.0" stylesheets="@quanLiHoSoCSS.css">
                     <columns>
                       <TableColumn editable="false" prefWidth="58.0" resizable="false" text="STT" />
@@ -53,8 +62,12 @@
                         <TableColumn editable="false" prefWidth="216.0" resizable="false" text="action" />
                     </columns>
                   </TableView>
+
+                  <!--nút phân trang-->
                   <HBox alignment="CENTER" prefHeight="49.0" prefWidth="1294.0" spacing="5.0">
                      <children>
+
+                     <!-- nút trang trước -->
                         <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="btn" text="&lt;" textFill="WHITE">
                            <font>
                               <Font name="Open Sans Semibold" size="18.0" />
@@ -63,11 +76,15 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
+
+                        <!--số trang-->
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1">
                            <font>
                               <Font name="Open Sans Semibold" size="20.0" />
                            </font>
                         </Text>
+
+                        <!--nút trang sau-->
                         <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="btn" text="&gt;" textFill="WHITE">
                            <font>
                               <Font name="Open Sans Semibold" size="18.0" />

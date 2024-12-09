@@ -28,13 +28,17 @@
                                     <Font name="Open Sans Semibold" size="18.0" />
                                  </font>
                               </Text>
+
+                              <!--tên cà phê-->
                               <TextField prefHeight="37.0" prefWidth="213.0" promptText="Cà phê đen">
                                  <font>
                                     <Font name="Open Sans Semibold" size="14.0" />
                                  </font>
                               </TextField>
+
                            </children>
                         </HBox>
+
                         <HBox prefHeight="28.0" prefWidth="395.0">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Đơn giá:" wrappingWidth="98.03515625">
@@ -42,6 +46,8 @@
                                     <Font name="Open Sans Semibold" size="18.0" />
                                  </font>
                               </Text>
+
+                              <!--đơn giá-->
                               <TextField prefHeight="28.0" prefWidth="220.0" promptText="30000">
                                  <font>
                                     <Font name="Open Sans Semibold" size="14.0" />
@@ -49,6 +55,7 @@
                               </TextField>
                            </children>
                         </HBox>
+
                         <HBox prefHeight="28.0" prefWidth="280.0">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Danh mục:" wrappingWidth="98.03515625">
@@ -56,6 +63,8 @@
                                     <Font name="Open Sans Semibold" size="18.0" />
                                  </font>
                               </Text>
+
+                              <!--combobox danh mục-->
                               <ComboBox prefHeight="28.0" prefWidth="206.0" promptText="- Chọn danh mục -" />
                            </children>
                         </HBox>
@@ -64,13 +73,18 @@
                         <Insets left="5.0" top="5.0" />
                      </padding>
                   </VBox>
+
                   <VBox alignment="CENTER" prefHeight="182.0" prefWidth="183.0" spacing="10.0">
                      <children>
+
+                     <!--ảnh cà phê-->
                         <ImageView fitHeight="140.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../icons/coffee.png" />
                            </image>
                         </ImageView>
+
+                        <!--nút chọn ảnh-->
                         <Button mnemonicParsing="false" styleClass="btn" text="Chọn hình ảnh" textFill="WHITE">
                            <font>
                               <Font name="Open Sans Semibold" size="16.0" />
@@ -83,8 +97,12 @@
                   </VBox>
                </children>
             </HBox>
+
+            <!--nút cập nhật và quay lại-->
             <HBox alignment="CENTER" prefHeight="106.0" prefWidth="500.0" spacing="10.0">
                <children>
+
+               <!--nút cập nhật-->
                   <Button mnemonicParsing="false" styleClass="btn" text="Cập nhật" textFill="WHITE">
                      <font>
                         <Font name="Open Sans Semibold" size="20.0" />
@@ -93,6 +111,8 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
+
+                  <!--nút quay lại-->
                   <Button mnemonicParsing="false" styleClass="btn" text="Quay lại" textFill="WHITE">
                      <font>
                         <Font name="Open Sans Semibold" size="20.0" />

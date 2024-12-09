@@ -19,6 +19,8 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" stylesheets="@donHangCSS.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
    <children>
+
+   <!--phần đầu-->
       <AnchorPane layoutY="25.0" prefHeight="150.0" prefWidth="1300.0" stylesheets="@donHangCSS.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Text layoutX="14.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Đơn hàng">
@@ -26,6 +28,8 @@
                   <Font name="Open Sans Semibold" size="40.0" />
                </font>
             </Text>
+
+            <!--nút xuất báo cáo-->
             <Button layoutX="1149.0" layoutY="100.0" mnemonicParsing="false" styleClass="btn" text="Xuất báo cáo" textFill="WHITE" AnchorPane.rightAnchor="14.0">
                <font>
                   <Font name="Open Sans Semibold" size="18.0" />
@@ -34,12 +38,17 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+
             <Text layoutX="13.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thời gian:" wrappingWidth="105.16015625" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="1181.83984375">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>
             </Text>
+
+            <!--thời gian-->
             <DatePicker layoutX="118.0" layoutY="100.0" prefHeight="40.0" prefWidth="187.0" promptText="1/1/2024" AnchorPane.leftAnchor="118.0" />
+
+            <!--nút lọc-->
             <Button layoutX="305.0" layoutY="100.0" mnemonicParsing="false" prefHeight="40.0" styleClass="btn" text="Lọc" textFill="WHITE" AnchorPane.leftAnchor="305.0">
                <font>
                   <Font name="Open Sans Semibold" size="18.0" />
@@ -48,11 +57,15 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+
+            <!--text field tìm kiếm theo mã-->
             <TextField layoutX="525.0" layoutY="100.0" prefHeight="40.0" promptText="DH00001" AnchorPane.leftAnchor="525.0">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>
             </TextField>
+
+            <!--nút tìm kiếm-->
             <Button contentDisplay="GRAPHIC_ONLY" layoutX="776.0" layoutY="100.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="btn" AnchorPane.leftAnchor="776.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -72,10 +85,14 @@
             <String fx:value="shadow" />
          </styleClass>
       </AnchorPane>
+
+      <!--phần thân-->
       <ScrollPane layoutX="38.0" layoutY="185.0" prefHeight="715.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="185.0">
          <content>
             <VBox prefHeight="110.0" prefWidth="1285.0">
                <children>
+
+               <!--bảng dữ liệu-->
                   <TableView prefHeight="61.0" prefWidth="1285.0">
                     <columns>
                       <TableColumn prefWidth="75.0" text="STT" />
@@ -86,8 +103,12 @@
                         <TableColumn prefWidth="238.0" text="*action" />
                     </columns>
                   </TableView>
+
+                  <!--nút phân trang-->
                   <HBox alignment="CENTER" prefHeight="49.0" prefWidth="1294.0" spacing="5.0">
                      <children>
+
+                     <!--nút trang trước-->
                         <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="btn" text="&lt;" textFill="WHITE">
                            <font>
                               <Font name="Open Sans Semibold" size="18.0" />
@@ -96,11 +117,15 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
+
+                        <!--số trang-->
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1">
                            <font>
                               <Font name="Open Sans Semibold" size="20.0" />
                            </font>
                         </Text>
+
+                        <!--nút trang sau-->
                         <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="btn" text="&gt;" textFill="WHITE">
                            <font>
                               <Font name="Open Sans Semibold" size="18.0" />

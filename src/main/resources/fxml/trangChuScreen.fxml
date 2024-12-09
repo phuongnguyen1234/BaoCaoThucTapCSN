@@ -33,6 +33,8 @@
                               </Text>
                            </children>
                         </AnchorPane>
+
+                        <!--nut log out-->
                         <Button layoutX="71.0" layoutY="838.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="160.0" styleClass="logout-btn" text="Đăng xuất" textFill="WHITE" AnchorPane.bottomAnchor="14.0">
                            <graphic>
                               <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
@@ -48,18 +50,25 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
+
+                        <!--profile ng dung-->
                         <ImageView fitHeight="130.0" fitWidth="130.0" layoutX="85.0" layoutY="659.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="111.0">
                            <image>
                               <Image url="@../icons/profile.png" />
                            </image>
                         </ImageView>
+
                         <Text fill="WHITE" layoutX="23.0" layoutY="817.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;tên người dùng&gt;" textAlignment="CENTER" wrappingWidth="255.076171875" AnchorPane.bottomAnchor="77.140625">
                            <font>
                               <Font name="Open Sans Semibold" size="20.0" />
                            </font>
                         </Text>
+
+                        <!-- menu nut chuc nang-->
                         <VBox layoutX="14.0" layoutY="213.0" prefHeight="250.0" prefWidth="275.0" spacing="15.0">
                            <children>
+
+                           <!--thuc don-->
                               <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="293.0" styleClass="function-btn" text="Thực đơn" textFill="WHITE">
                                  <graphic>
                                     <ImageView fitHeight="38.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
@@ -72,6 +81,8 @@
                                     <Font name="Open Sans Semibold" size="18.0" />
                                  </font>
                               </Button>
+
+                              <!--don hang-->
                               <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="339.0" styleClass="function-btn" text="Đơn hàng" textFill="WHITE">
                                  <graphic>
                                     <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
@@ -84,6 +95,8 @@
                                     <Font name="Open Sans Semibold" size="18.0" />
                                  </font>
                               </Button>
+
+                              <!--nhan vien-->
                               <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="363.0" styleClass="function-btn" text="Nhân viên" textFill="WHITE">
                                  <graphic>
                                     <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
@@ -96,6 +109,8 @@
                                     <Font name="Open Sans Semibold" size="18.0" />
                                  </font>
                               </Button>
+
+                              <!--bang luong-->
                               <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="371.0" styleClass="function-btn" text="Bảng lương" textFill="WHITE">
                                  <graphic>
                                     <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
@@ -108,6 +123,8 @@
                                     <Font name="Open Sans Semibold" size="18.0" />
                                  </font>
                               </Button>
+
+                              <!--phan tich hoat dong-->
                               <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="358.0" styleClass="function-btn" text="Phân tích hoạt động" textFill="WHITE">
                                  <graphic>
                                     <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
