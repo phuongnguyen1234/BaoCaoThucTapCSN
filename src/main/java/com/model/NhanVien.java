@@ -17,13 +17,13 @@ public class NhanVien {
     private String email;
     private String matKhau;
     private String quyenTruyCap;
-    private boolean trangThaiHoatDong;
+    private String trangThaiHoatDong;
 
     public NhanVien(){}
 
     public NhanVien(String maNhanVien, String tenNhanVien, byte[] anhChanDung, String gioiTinh, 
     LocalDate ngaySinh, String queQuan, String soDienThoai, String loainhanVien, String viTri,
-    LocalDate thoiGianVaoLam, int mucLuong, String email, String matKhau, String quyenTruyCap, boolean trangThaiHoatDong) {
+    LocalDate thoiGianVaoLam, int mucLuong, String email, String matKhau, String quyenTruyCap, String trangThaiHoatDong) {
         this.maNhanVien = maNhanVien;
         this.tenNhanVien = tenNhanVien;
         this.anhChanDung = anhChanDung;
@@ -154,11 +154,11 @@ public class NhanVien {
         this.quyenTruyCap = quyenTruyCap;
     }
 
-    public boolean getTrangThaiHoatDong() {
+    public String getTrangThaiHoatDong() {
         return trangThaiHoatDong;
     }
 
-    public void setTrangThaiHoatDong(boolean trangThaiHoatDong) {
+    public void setTrangThaiHoatDong(String trangThaiHoatDong) {
         this.trangThaiHoatDong = trangThaiHoatDong;
     }
 }

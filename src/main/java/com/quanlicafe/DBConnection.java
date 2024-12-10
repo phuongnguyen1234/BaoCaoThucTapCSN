@@ -17,6 +17,7 @@ public class DBConnection {
                 String password = props.getProperty("db.password");
 
                 connection = DriverManager.getConnection(url, user, password);
+                System.out.println("Kết nói thành công!");
             } catch (Exception e) {
                 e.printStackTrace();
                 throw new SQLException("Unable to connect to the database.");
@@ -25,4 +26,3 @@ public class DBConnection {
         return connection;
     }
 }
-

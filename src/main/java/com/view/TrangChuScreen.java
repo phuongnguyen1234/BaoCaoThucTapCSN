@@ -1,7 +1,11 @@
 package com.view;
 
 import java.io.IOException;
+import java.sql.PreparedStatement;
 
+import com.model.NhanVien;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -17,6 +21,12 @@ public class TrangChuScreen {
 
     @FXML
     private Button btnDangXuat;
+
+    @FXML
+    private Button btnThucDon;
+
+    @FXML
+    private Button btnNhanVien;
     
     @FXML
     private void thucDon() {
@@ -52,6 +62,17 @@ public class TrangChuScreen {
 
         //xu li logic load phan tich hoat dong
     }
+
+
+    @FXML
+    public void thietLapQuyenTruyCap(NhanVien nhanVien) {
+    if (nhanVien.getQuyenTruyCap().equalsIgnoreCase("User")) {
+        btnNhanVien.setDisable(true);
+        btnThucDon.setDisable(true);
+        }
+    }
+
+    
 
     @FXML
     private void dangXuat(){
