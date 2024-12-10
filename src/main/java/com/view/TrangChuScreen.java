@@ -1,8 +1,9 @@
 package com.view;
 
 import java.io.IOException;
-import java.sql.PreparedStatement;
 
+import com.control.DangNhapController;
+import com.model.LuuEmail;
 import com.model.NhanVien;
 
 import javafx.event.ActionEvent;
@@ -27,7 +28,13 @@ public class TrangChuScreen {
 
     @FXML
     private Button btnNhanVien;
-    
+
+    @FXML
+    private Button btnBangLuong;
+
+    @FXML
+    private Button btnPhanTichHoatDong;
+
     @FXML
     private void thucDon() {
         loadCenterContent("/fxml/thucDonScreen.fxml");
@@ -63,51 +70,47 @@ public class TrangChuScreen {
         //xu li logic load phan tich hoat dong
     }
 
-
-    @FXML
-    public void thietLapQuyenTruyCap(NhanVien nhanVien) {
-    if (nhanVien.getQuyenTruyCap().equalsIgnoreCase("User")) {
-        btnNhanVien.setDisable(true);
-        btnThucDon.setDisable(true);
-        }
-    }
-
-    
-
-    @FXML
-    private void dangXuat(){
-        try {
-            // Tải giao diện đăng nhập
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/dangNhapScreen.fxml"));
-            Parent loginRoot = loader.load();
-
-            // Lấy Stage hiện tại và thay đổi Scene
-            Stage currentStage = (Stage) btnDangXuat.getScene().getWindow();
-            currentStage.setScene(new Scene(loginRoot));
-            currentStage.setTitle("Quản lí cà phê ABC");
-
-            //xu li logic dang xuat
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    } 
-
-    /**
-     * Tải nội dung FXML vào khu vực trung tâm của BorderPane
-     * @param fxmlFile tên file FXML cần load
-     */
+    // Method to load center content based on action
     private void loadCenterContent(String fxmlFile) {
         try {
-            // Tải FXML mới
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
-            Node content = loader.load();
-
-            // Đặt nội dung vào phần center của BorderPane
-            mainBorderPane.setCenter(content);
+            Parent root = loader.load();
+            mainBorderPane.setCenter(root);
         } catch (IOException e) {
             e.printStackTrace();
-            System.err.println("Không thể tải file FXML: " + fxmlFile);
         }
     }
-}
+
+    // Method for setting user access rights (disable buttons based on role)
+    @FXML
+    public void thietLapQuyenTruyCap(NhanVien nhanVien) {
+        if (nhanVien.getQuyenTruyCap().equalsIgnoreCase("User")) {
+            // Disable buttons for user role
+            btnNhanVien.setDisable(true);
+            btnBangLuong.setDisable(true);
+            btnPhanTichHoatDong.setDisable(true);
+        }
+    }
+
+    @FXML
+    private void dangXuat(ActionEvent event) {
+        // Lấy email từ UserSession và đăng xuất
+        String email = LuuEmail.getEmail(); 
+        DangNhapController.dangXuat(email);
+
+        // Chuyển về màn hình đăng nhập
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/dangNhapScreen.fxml"));
+            Parent root = loader.load();
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.setScene(new Scene(root));
+            currentStage.setTitle("Đăng nhập");
+            currentStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+
+    }
+
