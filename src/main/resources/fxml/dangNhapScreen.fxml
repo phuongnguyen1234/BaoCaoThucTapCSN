@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.view.DangNhapScreen">
    <children>
       <AnchorPane prefHeight="600.0" prefWidth="400.0" styleClass="gradient" stylesheets="@dangNhapCSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          
@@ -38,21 +38,21 @@
             </Text>
 
             <!--text field email-->
-            <TextField layoutX="25.0" layoutY="243.0" prefHeight="40.0" prefWidth="350.0" promptText="Email đăng nhập" styleClass="textfield" stylesheets="@dangNhapCSS.css">
+            <TextField layoutX="25.0" layoutY="243.0" prefHeight="40.0" prefWidth="350.0" promptText="Email đăng nhập" styleClass="textfield" stylesheets="@dangNhapCSS.css" fx:id="emailTextField">
                <font>
                   <Font name="Open Sans" size="14.0" />
                </font>
             </TextField>
 
             <!--nut dang nhap-->
-            <Button layoutX="25.0" layoutY="346.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="350.0" styleClass="login-btn" stylesheets="@dangNhapCSS.css" text="Đăng nhập" textFill="WHITE">
+            <Button layoutX="25.0" layoutY="346.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="350.0" styleClass="login-btn" stylesheets="@dangNhapCSS.css" text="Đăng nhập" textFill="WHITE" onAction="#kichNutDangNhap" fx:id="btnDangNhap">
                <font>
                   <Font name="Open Sans Semibold" size="18.0" />
                </font>
             </Button>
 
             <!--password field-->
-            <PasswordField layoutX="25.0" layoutY="294.0" prefHeight="40.0" prefWidth="350.0" promptText="Mật khẩu" styleClass="textfield" stylesheets="@dangNhapCSS.css">
+            <PasswordField layoutX="25.0" layoutY="294.0" prefHeight="40.0" prefWidth="350.0" promptText="Mật khẩu" styleClass="textfield" stylesheets="@dangNhapCSS.css" fx:id="matKhauTextField">
                <font>
                   <Font name="Open Sans" size="14.0" />
                </font>

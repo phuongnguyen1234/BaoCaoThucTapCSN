@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" stylesheets="@quanLiHoSoCSS.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" stylesheets="@quanLiHoSoCSS.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.view.QuanLiHoSoScreen">
    <children>
 
    <!--phần đầu-->
@@ -26,7 +26,7 @@
             </Text>
 
             <!--nút thêm nhân viên-->
-            <Button layoutX="14.0" layoutY="91.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="197.0" styleClass="btn" text="Thêm nhân viên" textFill="WHITE" AnchorPane.leftAnchor="14.0">
+            <Button layoutX="14.0" layoutY="91.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="197.0" styleClass="btn" text="Thêm nhân viên" textFill="WHITE" AnchorPane.leftAnchor="14.0" onAction="#kichNutThem" fx:id="btnThemNhanVien">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>
@@ -68,7 +68,7 @@
                      <children>
 
                      <!-- nút trang trước -->
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="btn" text="&lt;" textFill="WHITE">
+                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="btn" text="&lt;" textFill="WHITE" onAction="#previousPage" fx:id="btnPrevious">
                            <font>
                               <Font name="Open Sans Semibold" size="18.0" />
                            </font>
@@ -78,14 +78,14 @@
                         </Button>
 
                         <!--số trang-->
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1" fx:id="soTrangText">
                            <font>
                               <Font name="Open Sans Semibold" size="20.0" />
                            </font>
                         </Text>
 
                         <!--nút trang sau-->
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="btn" text="&gt;" textFill="WHITE">
+                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="btn" text="&gt;" textFill="WHITE" onAction="#nextPage" fx:id="btnNext">
                            <font>
                               <Font name="Open Sans Semibold" size="18.0" />
                            </font>

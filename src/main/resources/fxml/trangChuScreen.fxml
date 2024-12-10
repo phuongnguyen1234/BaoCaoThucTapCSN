@@ -11,11 +11,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" stylesheets="@trangChuCSS.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" stylesheets="@trangChuCSS.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.view.TrangChuScreen">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <BorderPane prefHeight="900.0" prefWidth="1600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <BorderPane prefHeight="900.0" prefWidth="1600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" fx:id="mainBorderPane">
                <left>
                   <AnchorPane prefHeight="900.0" prefWidth="300.0" styleClass="nav-form" BorderPane.alignment="CENTER">
                      <children>
@@ -35,7 +35,7 @@
                         </AnchorPane>
 
                         <!--nut log out-->
-                        <Button layoutX="71.0" layoutY="838.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="160.0" styleClass="logout-btn" text="Đăng xuất" textFill="WHITE" AnchorPane.bottomAnchor="14.0">
+                        <Button layoutX="71.0" layoutY="838.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="160.0" styleClass="logout-btn" text="Đăng xuất" textFill="WHITE" AnchorPane.bottomAnchor="14.0" onAction="#dangXuat" fx:id="btnDangXuat">
                            <graphic>
                               <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -69,7 +69,7 @@
                            <children>
 
                            <!--thuc don-->
-                              <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="293.0" styleClass="function-btn" text="Thực đơn" textFill="WHITE">
+                              <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="293.0" styleClass="function-btn" text="Thực đơn" textFill="WHITE" onAction = "#thucDon" fx:id="btnThucDon">
                                  <graphic>
                                     <ImageView fitHeight="38.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -83,7 +83,7 @@
                               </Button>
 
                               <!--don hang-->
-                              <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="339.0" styleClass="function-btn" text="Đơn hàng" textFill="WHITE">
+                              <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="339.0" styleClass="function-btn" text="Đơn hàng" textFill="WHITE" onAction = "#donHang" fx:id="btnDonHang">
                                  <graphic>
                                     <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -97,7 +97,7 @@
                               </Button>
 
                               <!--nhan vien-->
-                              <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="363.0" styleClass="function-btn" text="Nhân viên" textFill="WHITE">
+                              <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="363.0" styleClass="function-btn" text="Nhân viên" textFill="WHITE" onAction = "#nhanVien" fx:id="btnNhanVien">
                                  <graphic>
                                     <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -111,7 +111,7 @@
                               </Button>
 
                               <!--bang luong-->
-                              <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="371.0" styleClass="function-btn" text="Bảng lương" textFill="WHITE">
+                              <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="371.0" styleClass="function-btn" text="Bảng lương" textFill="WHITE" onAction = "#bangLuong" fx:id="btnBangLuong">
                                  <graphic>
                                     <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -125,7 +125,7 @@
                               </Button>
 
                               <!--phan tich hoat dong-->
-                              <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="358.0" styleClass="function-btn" text="Phân tích hoạt động" textFill="WHITE">
+                              <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="358.0" styleClass="function-btn" text="Phân tích hoạt động" textFill="WHITE" onAction = "#phanTichHoatDong" fx:id="btnPhanTichHoatDong">
                                  <graphic>
                                     <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
