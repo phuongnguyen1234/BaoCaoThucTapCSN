@@ -1,6 +1,7 @@
 package com.quanlicafe;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -21,14 +22,15 @@ public class DBConnection {
 
                 // Lấy thông tin kết nối từ file cấu hình
                 String url = props.getProperty("db.url");
-                String user = props.getProperty("db.user");  
-                String password = props.getProperty("db.password"); 
+                String user = props.getProperty("db.username");  // Điều chỉnh lại key nếu cần
+                String password = props.getProperty("db.password");  // Điều chỉnh lại key nếu cần
+
                 // Kết nối cơ sở dữ liệu
                 connection = DriverManager.getConnection(url, user, password);
                 System.out.println("Kết nối thành công!");
-            } catch (Exception e) {
+            } catch (IOException e) {
                 e.printStackTrace();
-                throw new SQLException("Loi ket noi CSDL!");
+                throw new SQLException("Lỗi khi đọc file cấu hình.");
             }
         }
         return connection;
