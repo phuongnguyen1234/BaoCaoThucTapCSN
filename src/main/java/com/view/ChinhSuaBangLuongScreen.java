@@ -9,6 +9,7 @@ import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
 
+
 public class ChinhSuaBangLuongScreen {
     @FXML
     private Text maBangLuongText;
