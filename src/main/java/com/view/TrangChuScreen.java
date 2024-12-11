@@ -2,6 +2,12 @@ package com.view;
 
 import java.io.IOException;
 
+import com.control.DangNhapController;
+import com.control.TaoVaChinhSuaBangLuongController;
+import com.model.LuuEmail;
+import com.model.NhanVien;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -17,6 +23,21 @@ public class TrangChuScreen {
 
     @FXML
     private Button btnDangXuat;
+
+    @FXML
+    private Button btnThucDon;
+
+    @FXML
+    private Button btnDonHang;
+
+    @FXML
+    private Button btnNhanVien;
+
+    @FXML
+    private Button btnBangLuong;
+
+    @FXML
+    private Button btnPhanTichHoatDong;
     
     @FXML
     private void thucDon() {
@@ -40,11 +61,28 @@ public class TrangChuScreen {
     }
 
     @FXML
-    private void bangLuong() {
-        loadCenterContent("/fxml/bangLuongScreen.fxml");
+private void bangLuong() {
+    // Tải nội dung FXML và lấy controller của nó
+    try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/bangLuongScreen.fxml"));
+        Node content = loader.load();
+        
+        // Lấy controller từ FXML đã tải
+        BangLuongScreen screenController = loader.getController();
+        
+        // Gọi phương thức hienThiDanhSachBangLuong trong controller
+        TaoVaChinhSuaBangLuongController controller = new TaoVaChinhSuaBangLuongController();
+        screenController.hienThiDanhSachBangLuong(controller.layDanhSachBangLuongThangNay());
 
-        //xu li logic load bang luong
+        // Đặt nội dung vào phần center của BorderPane
+        mainBorderPane.setCenter(content);
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        System.err.println("Không thể tải file FXML: /fxml/bangLuongScreen.fxml");
     }
+}
+
 
     @FXML
     private void phanTichHoatDong() {
@@ -87,6 +125,38 @@ public class TrangChuScreen {
         } catch (IOException e) {
             e.printStackTrace();
             System.err.println("Không thể tải file FXML: " + fxmlFile);
+        }
+    }
+
+    public void thietLapQuyenTruyCap(NhanVien nhanVien) {
+        if (nhanVien.getQuyenTruyCap().equalsIgnoreCase("User")) {
+            btnNhanVien.setDisable(true);
+            btnThucDon.setDisable(true);
+            if (nhanVien.getQuyenTruyCap().equalsIgnoreCase("User")) {
+                // Disable buttons for user role
+                btnNhanVien.setDisable(true);
+                btnBangLuong.setDisable(true);
+                btnPhanTichHoatDong.setDisable(true);
+            }
+        }
+    }
+
+    @FXML
+    private void dangXuat(ActionEvent event) {
+        // Lấy email từ UserSession và đăng xuất
+        String email = LuuEmail.getEmail(); 
+        DangNhapController.dangXuat(email);
+
+        // Chuyển về màn hình đăng nhập
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/dangNhapScreen.fxml"));
+            Parent root = loader.load();
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.setScene(new Scene(root));
+            currentStage.setTitle("Đăng nhập");
+            currentStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

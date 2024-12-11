@@ -12,43 +12,48 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="500.0" styleClass="white-bg" stylesheets="@bangLuongCSS.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="500.0" styleClass="white-bg" stylesheets="@bangLuongCSS.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.view.ChinhSuaBangLuongScreen">
    <children>
       <VBox layoutX="98.0" layoutY="106.0" prefHeight="620.0" prefWidth="500.0" spacing="10.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mã bảng lương:" wrappingWidth="460.341796875">
+            <Text fx:id="maBangLuongText" strokeType="OUTSIDE" strokeWidth="0.0" text="Mã bảng lương:" wrappingWidth="460.341796875">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tên nhân viên:" wrappingWidth="502.611328125">
+
+            <Text fx:id="tenNhanVienText" strokeType="OUTSIDE" strokeWidth="0.0" text="Tên nhân viên:" wrappingWidth="502.611328125">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Loại nhân viên:" wrappingWidth="502.611328125">
+
+            <Text fx:id="loaiNhanVienText" strokeType="OUTSIDE" strokeWidth="0.0" text="Loại nhân viên:" wrappingWidth="502.611328125">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vị trí:" wrappingWidth="502.611328125">
+
+            <Text fx:id="viTriText" strokeType="OUTSIDE" strokeWidth="0.0" text="Vị trí:" wrappingWidth="502.611328125">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tháng:" wrappingWidth="502.611328125">
+
+            <Text fx:id="thangText" strokeType="OUTSIDE" strokeWidth="0.0" text="Tháng:" wrappingWidth="502.611328125">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>
             </Text>
+
             <HBox prefHeight="0.0" prefWidth="500.0" spacing="10.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày công:" wrappingWidth="149.611328125">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày công:" wrappingWidth="136.611328125">
                      <font>
                         <Font name="Open Sans Semibold" size="20.0" />
                      </font>
                   </Text>
-                  <Spinner prefHeight="39.0" prefWidth="63.0">
+                  <Spinner fx:id="ngayCongSpinner" editable="true" prefHeight="35.0" prefWidth="73.0">
                      <styleClass>
                         <String fx:value="font-size-16" />
                         <String fx:value="font-family" />
@@ -59,14 +64,15 @@
                   </Spinner>
                </children>
             </HBox>
+
             <HBox prefHeight="22.0" prefWidth="480.0" spacing="10.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nghỉ có công:" wrappingWidth="149.611328125">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nghỉ có công:" wrappingWidth="137.611328125">
                      <font>
                         <Font name="Open Sans Semibold" size="20.0" />
                      </font>
                   </Text>
-                  <Spinner prefHeight="39.0" prefWidth="63.0">
+                  <Spinner fx:id="nghiCoCongSpinner" editable="true" prefHeight="35.0" prefWidth="73.0">
                      <styleClass>
                         <String fx:value="font-size-16" />
                         <String fx:value="font-family" />
@@ -75,12 +81,13 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Spinner>
+
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nghỉ không công:" wrappingWidth="172.611328125">
                      <font>
                         <Font name="Open Sans Semibold" size="20.0" />
                      </font>
                   </Text>
-                  <Spinner prefHeight="39.0" prefWidth="63.0">
+                  <Spinner fx:id="nghiKhongCongSpinner" editable="true" prefHeight="39.0" prefWidth="63.0">
                      <styleClass>
                         <String fx:value="font-size-16" />
                         <String fx:value="font-family" />
@@ -91,14 +98,15 @@
                   </Spinner>
                </children>
             </HBox>
+
             <HBox prefHeight="0.0" prefWidth="500.0" spacing="10.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Giờ làm thêm:" wrappingWidth="149.611328125">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Giờ làm thêm:" wrappingWidth="137.611328125">
                      <font>
                         <Font name="Open Sans Semibold" size="20.0" />
                      </font>
                   </Text>
-                  <Spinner prefHeight="29.0" prefWidth="63.0">
+                  <Spinner fx:id="gioLamThemSpinner" editable="true" prefHeight="35.0" prefWidth="73.0">
                      <styleClass>
                         <String fx:value="font-size-16" />
                         <String fx:value="font-family" />
@@ -109,27 +117,32 @@
                   </Spinner>
                </children>
             </HBox>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Số đơn đã tạo:" wrappingWidth="502.611328125">
+
+            <Text fx:id="soDonDaTaoText" strokeType="OUTSIDE" strokeWidth="0.0" text="Số đơn đã tạo:" wrappingWidth="502.611328125">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Thưởng doanh thu:" wrappingWidth="502.611328125">
+
+            <Text fx:id="thuongDoanhThuText" strokeType="OUTSIDE" strokeWidth="0.0" text="Thưởng doanh thu:" wrappingWidth="502.611328125">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lương thực nhận:" wrappingWidth="502.611328125">
+
+            <Text fx:id="luongThucNhanText" strokeType="OUTSIDE" strokeWidth="0.0" text="Lương thực nhận:" wrappingWidth="502.611328125">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>
             </Text>
+
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ghi chú:" wrappingWidth="502.611328125">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>
             </Text>
-            <TextArea prefHeight="130.0" prefWidth="500.0" wrapText="true">
+
+            <TextArea fx:id="ghiChuTextArea" prefHeight="130.0" prefWidth="500.0" wrapText="true">
                <font>
                   <Font name="Open Sans" size="18.0" />
                </font>
@@ -139,9 +152,10 @@
             <Insets left="10.0" right="10.0" top="10.0" />
          </padding>
       </VBox>
+
       <HBox layoutX="135.0" layoutY="633.0" prefHeight="43.0" prefWidth="231.0" spacing="10.0">
          <children>
-            <Button mnemonicParsing="false" styleClass="btn" text="Cập nhật" textFill="WHITE">
+            <Button fx:id="btnCapNhat" mnemonicParsing="false" onAction="#kichNutCapNhat" styleClass="btn" text="Cập nhật" textFill="WHITE">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>
@@ -149,7 +163,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button mnemonicParsing="false" styleClass="btn" text="Quay lại" textFill="WHITE">
+            <Button fx:id="btnQuayLai" mnemonicParsing="false" onAction="#kichNutQuayLai" styleClass="btn" text="Quay lại" textFill="WHITE">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>

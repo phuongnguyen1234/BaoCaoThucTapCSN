@@ -1,11 +1,14 @@
-package com.model;
+package com.dto;
 
 import java.time.YearMonth;
-import java.time.format.DateTimeFormatter;
 
-public class BangLuong {
+public class BangLuongDTO {
     private String maBangLuong;
     private String maNhanVien;
+    private String tenNhanVien; // Tên nhân viên
+    private String loaiNhanVien;
+    private String viTri;
+    private int mucLuong;
     private YearMonth thang;
     private int soNgayCong;
     private int soNgayNghiCoCong;
@@ -17,13 +20,18 @@ public class BangLuong {
     private String ghiChu;
     private String duocPhepChinhSua;
 
-    public BangLuong(){}
+    public BangLuongDTO(){}
 
-    public BangLuong(String maBangLuong, String maNhanVien, YearMonth thang, int soNgayCong,
-    int soNgayNghiCoCong, int soNgayNghiKhongCong, int soGioLamThem, int soLuongDonDaTao, int thuongDoanhThu,
-    int luongThucNhan, String ghiChu, String duocPhepChinhSua) {
+    // Constructor
+    public BangLuongDTO(String maBangLuong, String maNhanVien, String tenNhanVien, String loaiNhanVien, String viTri, int mucLuong, YearMonth thang, int soNgayCong,
+                                    int soNgayNghiCoCong, int soNgayNghiKhongCong, int soGioLamThem, int soLuongDonDaTao,
+                                    int thuongDoanhThu, int luongThucNhan, String ghiChu, String duocPhepChinhSua) {
         this.maBangLuong = maBangLuong;
         this.maNhanVien = maNhanVien;
+        this.tenNhanVien = tenNhanVien;
+        this.loaiNhanVien = loaiNhanVien;
+        this.viTri = viTri;
+        this.mucLuong = mucLuong;
         this.thang = thang;
         this.soNgayCong = soNgayCong;
         this.soNgayNghiCoCong = soNgayNghiCoCong;
@@ -36,22 +44,55 @@ public class BangLuong {
         this.duocPhepChinhSua = duocPhepChinhSua;
     }
 
+    // Getters and Setters
     public String getMaBangLuong() {
         return maBangLuong;
     }
-    
+
     public void setMaBangLuong(String maBangLuong) {
         this.maBangLuong = maBangLuong;
     }
-    
+
     public String getMaNhanVien() {
         return maNhanVien;
     }
-    
+
     public void setMaNhanVien(String maNhanVien) {
         this.maNhanVien = maNhanVien;
     }
-    
+
+    public String getTenNhanVien() {
+        return tenNhanVien;
+    }
+
+    public void setTenNhanVien(String tenNhanVien) {
+        this.tenNhanVien = tenNhanVien;
+    }
+
+    public String getLoaiNhanVien() {
+        return loaiNhanVien;
+    }
+
+    public void setLoaiNhanVien(String loaiNhanVien) {
+        this.loaiNhanVien = loaiNhanVien;
+    }
+
+    public String getViTri() {
+        return viTri;
+    }
+
+    public void setViTri(String viTri) {
+        this.viTri = viTri;
+    }
+
+    public int getMucLuong() {
+        return mucLuong;
+    }
+
+    public void setMucLuong(int mucLuong) {
+        this.mucLuong = mucLuong;
+    }
+
     public YearMonth getThang() {
         return thang;
     }
@@ -130,15 +171,5 @@ public class BangLuong {
     
     public void setDuocPhepChinhSua(String duocPhepChinhSua) {
         this.duocPhepChinhSua = duocPhepChinhSua;
-    }
-
-    public YearMonth dateSQLToYearMonth(String dateSQL) {
-        String[] parts = dateSQL.split("-");
-        return YearMonth.of(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
-    }
-
-    public String yearMonthToDateSQL(YearMonth yearMonth) {
-        String formattedDate = yearMonth.atDay(1).format(DateTimeFormatter.ISO_LOCAL_DATE);
-        return formattedDate;
     }
 }

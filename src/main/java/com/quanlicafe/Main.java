@@ -12,7 +12,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         try {
             // Tải file FXML
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/trangChuScreen.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/dangNhapScreen.fxml"));
 
             // Thiết lập tiêu đề, giao diện và biểu tượng
             primaryStage.setTitle("Quản lí cà phê ABC");

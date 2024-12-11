@@ -61,3 +61,10 @@
 .font-size-16{
     -fx-font-size: 16px;
 }
+
+.table-cell{
+    -fx-alignment:center;
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 16px;
+    -fx-wrap-text:true;
+}
