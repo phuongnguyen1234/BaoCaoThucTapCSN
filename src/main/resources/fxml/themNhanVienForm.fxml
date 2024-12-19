@@ -22,7 +22,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="680.0" stylesheets="@quanLiHoSoCSS.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.view.QuanLiHoSoScreen">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="680.0" stylesheets="@quanLiHoSoCSS.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.view.ThemNhanVienScreen">
    <children>
       <VBox layoutX="6.0" layoutY="31.0" prefHeight="736.0" prefWidth="462.0" spacing="10.0" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="218.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -86,58 +86,58 @@
                   </Label>
 
                   <!--tên nhân viên-->
-                  <TextField prefHeight="61.0" prefWidth="217.0" promptText="Nguyễn Văn A" GridPane.columnIndex="1">
+                  <TextField fx:id="tenNhanVienTextField" prefHeight="61.0" prefWidth="217.0" promptText="Nguyễn Văn A" GridPane.columnIndex="1">
                      <font>
-                        <Font name="Open Sans" size="18.0" />
+                        <Font name="Open Sans" size="16.0" />
                      </font></TextField>
 
                      <!--radio button chọn giới tính-->
-                  <HBox alignment="CENTER_LEFT" prefHeight="17.0" prefWidth="217.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <HBox fx:id="gioiTinhHBox" alignment="CENTER_LEFT" prefHeight="17.0" prefWidth="217.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <RadioButton mnemonicParsing="false" text="Nam">
+                        <RadioButton fx:id="namRadioButton" mnemonicParsing="false" text="Nam">
                            <font>
-                              <Font name="Open Sans" size="18.0" />
+                              <Font name="Open Sans" size="16.0" />
                            </font>
                            <toggleGroup>
                               <ToggleGroup fx:id="gender" />
                            </toggleGroup>
                         </RadioButton>
 
-                        <RadioButton mnemonicParsing="false" text="Nữ" toggleGroup="$gender">
+                        <RadioButton fx:id="nuRadioButton" mnemonicParsing="false" text="Nữ" toggleGroup="$gender">
                            <font>
-                              <Font name="Open Sans" size="18.0" />
+                              <Font name="Open Sans" size="16.0" />
                            </font>
                         </RadioButton>
                      </children>
                   </HBox>
 
                   <!--chọn ngày sinh-->
-                  <DatePicker prefHeight="90.0" prefWidth="273.0" promptText="MM/dd/yyyy" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <DatePicker fx:id="ngaySinhDatePicker" prefHeight="90.0" prefWidth="273.0" promptText="MM/dd/yyyy" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <styleClass>
-                        <String fx:value="font-size-18" />
                         <String fx:value="font-family" />
+                        <String fx:value="font-size-16" />
                      </styleClass></DatePicker>
 
                   <!--quê quán-->
-                  <TextField prefHeight="61.0" prefWidth="217.0" promptText="Hà Nội" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <TextField fx:id="queQuanTextField" prefHeight="61.0" prefWidth="217.0" promptText="Hà Nội" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <font>
-                        <Font name="Open Sans" size="18.0" />
+                        <Font name="Open Sans" size="16.0" />
                      </font></TextField>
 
                   <!--địa chỉ-->
-                  <TextArea prefHeight="58.0" prefWidth="273.0" promptText="12 Đường Cầu Giấy..." wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <TextArea fx:id="diaChiTextArea" prefHeight="58.0" prefWidth="273.0" promptText="12 Đường Cầu Giấy..." styleClass="text-field" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <font>
-                        <Font name="Open Sans" size="18.0" />
+                        <Font name="Open Sans" size="16.0" />
                      </font>
                   </TextArea>
 
                   <!--sđt-->
-                  <TextField prefHeight="61.0" prefWidth="217.0" promptText="0987654321" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                  <TextField fx:id="soDienThoaiTextField" prefHeight="61.0" prefWidth="217.0" promptText="0987654321" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <font>
-                        <Font name="Open Sans" size="18.0" />
+                        <Font name="Open Sans" size="16.0" />
                      </font></TextField>
                </children>
             </GridPane>
@@ -190,33 +190,33 @@
                   </Label>
 
                   <!--combobox loại nhân viên-->
-                  <ComboBox prefHeight="30.0" prefWidth="285.0" promptText="Chọn loại nhân viên" visibleRowCount="2" GridPane.columnIndex="1">
+                  <ComboBox fx:id="loaiNhanVienComboBox" prefHeight="30.0" prefWidth="285.0" promptText="Chọn loại nhân viên" visibleRowCount="3" GridPane.columnIndex="1">
                      <styleClass>
-                        <String fx:value="font-size-18" />
-                        <String fx:value="font-family" />
+                        <String fx:value="combobox" />
+                        <String fx:value="font-size-16" />
                      </styleClass></ComboBox>
 
                      <!--combobox vị trí-->
-                  <ComboBox prefHeight="80.0" prefWidth="284.0" promptText="Chọn vị trí" visibleRowCount="3" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <ComboBox fx:id="viTriComboBox" prefHeight="80.0" prefWidth="284.0" promptText="Chọn vị trí" visibleRowCount="4" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <styleClass>
-                        <String fx:value="font-size-18" />
-                        <String fx:value="font-family" />
+                        <String fx:value="combobox" />
+                        <String fx:value="font-size-16" />
                      </styleClass></ComboBox>
 
                      <!--ngày vào làm-->
-                  <DatePicker prefHeight="87.0" prefWidth="355.0" promptText="MM/dd/yyyy" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <DatePicker fx:id="thoiGianVaoLamDatePicker" prefHeight="87.0" prefWidth="355.0" promptText="MM/dd/yyyy" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <styleClass>
-                        <String fx:value="font-size-18" />
                         <String fx:value="font-family" />
+                        <String fx:value="font-size-16" />
                      </styleClass></DatePicker>
 
                   <!--mức lương-->
-                  <TextField prefHeight="61.0" prefWidth="217.0" promptText="3000000" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <TextField fx:id="mucLuongTextField" prefHeight="61.0" prefWidth="217.0" promptText="3000000" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <font>
-                        <Font name="Open Sans" size="18.0" />
+                        <Font name="Open Sans" size="16.0" />
                      </font></TextField>
                </children>
             </GridPane>
@@ -262,23 +262,22 @@
                   </Label>
 
                   <!--email-->
-                  <TextField prefHeight="61.0" prefWidth="217.0" promptText="nguyenvanA@gmail.com" GridPane.columnIndex="1">
+                  <TextField fx:id="emailTextField" prefHeight="61.0" prefWidth="217.0" promptText="nguyenvanA@gmail.com" GridPane.columnIndex="1">
                      <font>
-                        <Font name="Open Sans" size="18.0" />
+                        <Font name="Open Sans" size="16.0" />
                      </font></TextField>
 
                      <!--password-->
-                  <PasswordField prefHeight="81.0" prefWidth="240.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <PasswordField fx:id="matKhauPasswordField" prefHeight="81.0" prefWidth="240.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
-                        <Font name="Open Sans" size="18.0" />
+                        <Font name="Open Sans" size="16.0" />
                      </font></PasswordField>
 
                      <!--quyền truy cập-->
-                  <ComboBox prefHeight="221.0" prefWidth="467.0" promptText="Chọn quyền truy cập" visibleRowCount="3" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <ComboBox fx:id="quyenTruyCapComboBox" prefHeight="221.0" prefWidth="467.0" promptText="Chọn quyền truy cập" visibleRowCount="3" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <styleClass>
-                        <String fx:value="font-size-18" />
-                        <String fx:value="font-size-18" />
-                        <String fx:value="font-family" />
+                        <String fx:value="combobox" />
+                        <String fx:value="font-size-16" />
                      </styleClass></ComboBox>
                </children>
             </GridPane>
@@ -289,14 +288,14 @@
       </VBox>
 
       <!--ảnh chân dung-->
-      <ImageView fitHeight="240.0" fitWidth="180.0" layoutX="486.0" layoutY="14.0" pickOnBounds="true">
+      <ImageView fx:id="anhChanDungImageView" fitHeight="240.0" fitWidth="180.0" layoutX="486.0" layoutY="14.0" pickOnBounds="true">
          <image>
             <Image url="@../icons/profile.png" />
          </image>
       </ImageView>
 
       <!--nút chọn ảnh-->
-      <Button layoutX="500.0" layoutY="264.0" mnemonicParsing="false" styleClass="btn" text="Chọn hình ảnh" textFill="WHITE">
+      <Button fx:id="btnChonAnh" layoutX="500.0" layoutY="264.0" mnemonicParsing="false" onAction="#chonAnh" styleClass="btn" text="Chọn hình ảnh" textFill="WHITE">
          <font>
             <Font name="Open Sans Semibold" size="18.0" />
          </font>
@@ -310,7 +309,7 @@
          <children>
 
          <!--nút thêm-->
-            <Button mnemonicParsing="false" styleClass="btn" text="Thêm" textFill="WHITE">
+            <Button fx:id="btnThem" mnemonicParsing="false" onAction="#kichNutThemNhanVien" styleClass="btn" text="Thêm" textFill="WHITE">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>
@@ -320,7 +319,7 @@
             </Button>
 
             <!--nút quay lại-->
-            <Button mnemonicParsing="false" styleClass="btn" text="Quay lại" textFill="WHITE">
+            <Button fx:id="btnQuayLai" mnemonicParsing="false" onAction="#quayLai" styleClass="btn" text="Quay lại" textFill="WHITE">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>

@@ -1,6 +1,5 @@
 package com.view;
 
-import com.control.TaoVaChinhSuaBangLuongController;
 import com.dto.BangLuongDTO;
 
 import javafx.fxml.FXML;
@@ -9,69 +8,48 @@ import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
 
-
 public class ChinhSuaBangLuongScreen {
     @FXML
-    private Text maBangLuongText;
+    private Text maBangLuongText, tenNhanVienText, loaiNhanVienText, viTriText, thangText, soDonDaTaoText, thuongDoanhThuText, luongThucNhanText;
 
     @FXML
-    private Text tenNhanVienText;
-
-    @FXML
-    private Text loaiNhanVienText;
-
-    @FXML
-    private Text viTriText;
-
-    @FXML
-    private Text thangText;
-
-    @FXML
-    private Spinner<Integer> ngayCongSpinner;
-
-    @FXML
-    private Spinner<Integer> nghiCoCongSpinner;
-
-    @FXML
-    private Spinner<Integer> nghiKhongCongSpinner;
-
-    @FXML
-    private Spinner<Integer> gioLamThemSpinner;
-
-    @FXML
-    private Text soDonDaTaoText;
-
-    @FXML
-    private Text thuongDoanhThuText;
-
-    @FXML
-    private Text luongThucNhanText;
+    private Spinner<Integer> ngayCongSpinner, nghiCoCongSpinner, nghiKhongCongSpinner, gioLamThemSpinner;
 
     @FXML
     private TextArea ghiChuTextArea;
 
     private BangLuongDTO bangLuong;
 
-    public void initialize() {
-    // Thiết lập giá trị tối thiểu, tối đa và bước nhảy
-    SpinnerValueFactory<Integer> valueFactoryNgayCong = 
-        new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 40, 0, 1);
-    
-    SpinnerValueFactory<Integer> valueFactoryNghiCoCong = 
-        new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 40, 0, 1);
-    
-    SpinnerValueFactory<Integer> valueFactoryNghiKhongCong =
-        new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 40, 0, 1);
-    
-    SpinnerValueFactory<Integer> valueFactoryGioLamThem = 
-        new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100, 0, 1);
+    private BangLuongScreen bangLuongScreen;
 
-    // Gán giá trị ban đầu (giá trị mặc định)
-    ngayCongSpinner.setValueFactory(valueFactoryNgayCong);
-    nghiCoCongSpinner.setValueFactory(valueFactoryNghiCoCong);
-    nghiKhongCongSpinner.setValueFactory(valueFactoryNghiKhongCong);
-    gioLamThemSpinner.setValueFactory(valueFactoryGioLamThem);
-}
+    public void initialize() {
+        // Thiết lập giá trị tối thiểu, tối đa và bước nhảy
+        SpinnerValueFactory<Integer> valueFactoryNgayCong =
+            new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 40, 0, 1);
+    
+        SpinnerValueFactory<Integer> valueFactoryNghiCoCong =
+            new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 40, 0, 1);
+    
+        SpinnerValueFactory<Integer> valueFactoryNghiKhongCong =
+            new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 40, 0, 1);
+    
+        SpinnerValueFactory<Integer> valueFactoryGioLamThem =
+            new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100, 0, 1);
+
+        // Gán giá trị ban đầu (giá trị mặc định)
+        ngayCongSpinner.setValueFactory(valueFactoryNgayCong);
+        nghiCoCongSpinner.setValueFactory(valueFactoryNghiCoCong);
+        nghiKhongCongSpinner.setValueFactory(valueFactoryNghiKhongCong);
+        gioLamThemSpinner.setValueFactory(valueFactoryGioLamThem);
+
+        // Ràng buộc logic giữa số ngày công và số ngày nghỉ không công
+        nghiKhongCongSpinner.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (bangLuong != null) {
+                int ngayCongThucTe = bangLuong.getSoNgayCong() - newValue;
+                ngayCongSpinner.getValueFactory().setValue(Math.max(ngayCongThucTe, 0));
+            }
+        });
+    }
 
     public void setBangLuong(BangLuongDTO bangLuong) {
         this.bangLuong = bangLuong;
@@ -84,6 +62,7 @@ public class ChinhSuaBangLuongScreen {
             tenNhanVienText.setText("Tên nhân viên: " + bangLuong.getTenNhanVien());
             loaiNhanVienText.setText("Loại nhân viên: " + bangLuong.getLoaiNhanVien());
             viTriText.setText("Vị trí: " + bangLuong.getViTri());
+            thangText.setText("Tháng: " + bangLuong.getThang());
             ngayCongSpinner.getValueFactory().setValue(bangLuong.getSoNgayCong());
             nghiCoCongSpinner.getValueFactory().setValue(bangLuong.getSoNgayNghiCoCong());
             nghiKhongCongSpinner.getValueFactory().setValue(bangLuong.getSoNgayNghiKhongCong());
@@ -106,12 +85,11 @@ public class ChinhSuaBangLuongScreen {
             bangLuong.setGhiChu(ghiChuTextArea.getText());
         }
         try {
-            TaoVaChinhSuaBangLuongController controller = new TaoVaChinhSuaBangLuongController();
-            controller.sua(bangLuong);
+            bangLuongScreen.getTaoLuongController().sua(bangLuong);
 
             // Làm mới danh sách ở BangLuongScreen
             if (bangLuongScreen != null) {
-                bangLuongScreen.hienThiDanhSachBangLuong(controller.layDanhSachBangLuongThangNay());
+                bangLuongScreen.hienThiDanhSachBangLuong(bangLuongScreen.getTaoLuongController().layDanhSachBangLuongThangNay());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -126,8 +104,6 @@ public class ChinhSuaBangLuongScreen {
     private void kichNutQuayLai(){
         maBangLuongText.getScene().getWindow().hide();
     }
-
-    private BangLuongScreen bangLuongScreen;
 
     public void setBangLuongScreen(BangLuongScreen bangLuongScreen) {
         this.bangLuongScreen = bangLuongScreen;

@@ -15,14 +15,14 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="700.0" styleClass="white-bg" stylesheets="@thucDonCSS.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.view.ThucDonScreen">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="500.0" styleClass="white-bg" stylesheets="@thucDonCSS.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.view.ThemVaoThucDonScreen">
    <children>
 
    <!-- grid thông tin -->
-      <GridPane layoutX="14.0" layoutY="14.0" prefHeight="110.0" prefWidth="450.0" vgap="10.0">
+      <GridPane layoutX="14.0" layoutY="14.0" prefHeight="110.0" prefWidth="330.0" vgap="10.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="226.0" minWidth="0.0" prefWidth="107.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="372.0" minWidth="0.0" prefWidth="343.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="226.0" minWidth="0.0" prefWidth="96.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="372.0" minWidth="0.0" prefWidth="234.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -31,57 +31,57 @@
         </rowConstraints>
 
          <children>
-            <Label text="Tên:">
+            <Label prefHeight="25.0" prefWidth="65.0" text="Tên:">
                <font>
-                  <Font name="Open Sans Semibold" size="20.0" />
+                  <Font name="Open Sans Semibold" size="18.0" />
                </font>
             </Label>
 
             <Label text="Đơn giá:" GridPane.rowIndex="1">
                <font>
-                  <Font name="Open Sans Semibold" size="20.0" />
+                  <Font name="Open Sans Semibold" size="18.0" />
                </font>
             </Label>
 
             <Label text="Danh mục:" GridPane.rowIndex="2">
                <font>
-                  <Font name="Open Sans Semibold" size="20.0" />
+                  <Font name="Open Sans Semibold" size="18.0" />
                </font>
             </Label>
 
             <!--text field các trường nhập-->
-            <TextField prefHeight="55.0" prefWidth="371.0" promptText="Cà phê đen" GridPane.columnIndex="1">
+            <TextField fx:id="tenCaPheTextField" prefHeight="37.0" prefWidth="213.0" promptText="Cà phê đen" GridPane.columnIndex="1">
                <font>
-                  <Font name="Open Sans" size="18.0" />
+                  <Font name="Open Sans" size="16.0" />
                </font>
             </TextField>
 
-            <TextField prefHeight="55.0" prefWidth="371.0" promptText="30000" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="donGiaTextField" prefHeight="37.0" prefWidth="213.0" promptText="30000" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
-                  <Font name="Open Sans" size="18.0" />
+                  <Font name="Open Sans" size="16.0" />
                </font>
             </TextField>
 
-            <ComboBox prefHeight="98.0" prefWidth="471.0" promptText="Chọn danh mục" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <ComboBox fx:id="danhMucCombobox" prefHeight="98.0" prefWidth="471.0" promptText="Chọn danh mục" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <styleClass>
-                  <String fx:value="font-size-18" />
-                  <String fx:value="font-family" />
+                  <String fx:value="font-size-14" />
+                  <String fx:value="combobox" />
                </styleClass></ComboBox>
 
          </children>
       </GridPane>
 
       <!--ảnh cà phê-->
-      <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="480.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="anhMinhHoaImageView" fitHeight="140.0" fitWidth="140.0" layoutX="350.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icons/coffee.png" />
          </image>
       </ImageView>
 
       <!--nút chọn hình ảnh-->
-      <Button layoutX="504.0" layoutY="222.0" mnemonicParsing="false" styleClass="btn" text="Chọn hình ảnh" textFill="WHITE">
+      <Button fx:id="btnChonHinhAnh" layoutX="350.0" layoutY="160.0" mnemonicParsing="false" onAction="#chonHinhAnh" prefWidth="140.0" styleClass="btn" text="Chọn hình ảnh" textFill="WHITE">
          <font>
-            <Font name="Open Sans Semibold" size="18.0" />
+            <Font name="Open Sans Semibold" size="16.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -89,11 +89,11 @@
       </Button>
 
       <!--nút thêm và quay lại-->
-      <HBox layoutX="185.0" layoutY="281.0" prefHeight="43.0" prefWidth="330.0" spacing="10.0">
+      <HBox layoutX="85.0" layoutY="210.0" prefHeight="43.0" prefWidth="330.0" spacing="10.0">
          <children>
 
          <!--nút thêm-->
-            <Button mnemonicParsing="false" styleClass="btn" text="Thêm vào thực đơn" textFill="WHITE">
+            <Button fx:id="btnThemVaoThucDon" mnemonicParsing="false" onAction="#kichNutThemVaoThucDon" styleClass="btn" text="Thêm vào thực đơn" textFill="WHITE">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>
@@ -103,7 +103,7 @@
             </Button>
 
             <!--nút quay lại-->
-            <Button mnemonicParsing="false" styleClass="btn" text="Quay lại" textFill="WHITE">
+            <Button fx:id="btnQuayLai" mnemonicParsing="false" onAction="#kichNutQuayLai" styleClass="btn" text="Quay lại" textFill="WHITE">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>

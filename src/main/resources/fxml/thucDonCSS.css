@@ -14,15 +14,30 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 5, 0, 0, 0);
 }
 
-.vbox .category-label{
+.category-label{
     -fx-border-color: #286155;
-    -fx-border-width: 0 0 0 3px;
-    -fx-border-padding: 0 0 0 5px;
+    -fx-border-width: 0 0 0 5px;
+    -fx-border-padding: 0 0 0 10px;
+    -fx-padding: 0 0 0 10px;
+    -fx-font-size: 25px;
+    -fx-font-family: "Open Sans Semibold";
+    -fx-text-fill: linear-gradient(to bottom right, #0f6789, #286155);
+    -fx-background-color: linear-gradient(to bottom right,#aee2d8 ,#ffffff);
+    -fx-pref-width: 698px;
 }
 
 .table-view{
     -fx-background-color: transparent;
     -fx-padding: 0;
+    -fx-border-color: linear-gradient(to bottom right, #0f6789, #286155);
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 5px;
+}
+
+.table-view .column-header-background{
+    -fx-background-color: linear-gradient(to bottom right, #0f6789, #286155);
+    -fx-border-radius: 5px;
+    -fx-background-inset: 0 0 0 0;
 }
 
 .table-view .column-header, .filter{
@@ -31,12 +46,14 @@
 }
 
 .table-view .column-header .label{
-    -fx-font-size: 14px;
+    -fx-font-size: 13px;
+    -fx-text-fill: #fff;
 }
 
 .table-view .table-cell{
-    -fx-wrap-text: true;
     -fx-padding: 5px;
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 13px;
 }
 
 .btn{
@@ -51,6 +68,51 @@
     -fx-font-size: 18px;
 }
 
+.font-size-16{
+    -fx-font-size: 16px;
+}
+
+.font-size-14{
+    -fx-font-size: 14px;
+}
+
 .font-family{
     -fx-font-family: "Open Sans";
+}
+
+.btn-sua{
+    -fx-background-color: #1f9eed;
+    -fx-text-fill: white;
+    -fx-min-width: 30px;
+    -fx-padding: 5 10 5 10;
+    -fx-cursor: hand;
+}
+
+.btn-xoa{
+    -fx-background-color: #f44336;
+    -fx-text-fill: white;
+    -fx-min-width: 30px;
+    -fx-padding: 5 10 5 10;
+    -fx-cursor: hand;
+}
+
+.combobox{
+    -fx-background-color: #fff;
+    -fx-border-color: #286155;
+    -fx-border-radius: 5px;
+    -fx-border-width: 1.5px;
+    -fx-cursor: hand;
+}
+
+.combobox2{
+    -fx-background-color: #fff;
+    -fx-border-color: #bfbfbf;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+    -fx-cursor: hand;
+}
+
+.text-field{
+    -fx-border-color: #286155;
+    -fx-border-radius: 5px;
 }

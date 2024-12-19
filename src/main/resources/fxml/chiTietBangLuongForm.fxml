@@ -46,7 +46,7 @@
                </font>
             </Text>
 
-            <HBox prefHeight="0.0" prefWidth="500.0" spacing="10.0">
+            <HBox prefHeight="0.0" prefWidth="500.0" spacing="8.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày công:" wrappingWidth="136.611328125">
                      <font>
@@ -65,7 +65,7 @@
                </children>
             </HBox>
 
-            <HBox prefHeight="22.0" prefWidth="480.0" spacing="10.0">
+            <HBox prefHeight="22.0" prefWidth="496.0" spacing="8.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nghỉ có công:" wrappingWidth="137.611328125">
                      <font>
@@ -87,7 +87,7 @@
                         <Font name="Open Sans Semibold" size="20.0" />
                      </font>
                   </Text>
-                  <Spinner fx:id="nghiKhongCongSpinner" editable="true" prefHeight="39.0" prefWidth="63.0">
+                  <Spinner fx:id="nghiKhongCongSpinner" editable="true" prefHeight="35.0" prefWidth="73.0">
                      <styleClass>
                         <String fx:value="font-size-16" />
                         <String fx:value="font-family" />
@@ -99,7 +99,7 @@
                </children>
             </HBox>
 
-            <HBox prefHeight="0.0" prefWidth="500.0" spacing="10.0">
+            <HBox prefHeight="0.0" prefWidth="500.0" spacing="8.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Giờ làm thêm:" wrappingWidth="137.611328125">
                      <font>
@@ -142,7 +142,7 @@
                </font>
             </Text>
 
-            <TextArea fx:id="ghiChuTextArea" prefHeight="130.0" prefWidth="500.0" wrapText="true">
+            <TextArea fx:id="ghiChuTextArea" prefHeight="130.0" prefWidth="500.0" styleClass="text-field" wrapText="true">
                <font>
                   <Font name="Open Sans" size="18.0" />
                </font>

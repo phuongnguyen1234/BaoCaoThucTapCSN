@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
+<?import java.net.URL?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" stylesheets="@quanLiHoSoCSS.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.view.QuanLiHoSoScreen">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.view.QuanLiHoSoScreen">
    <children>
 
    <!--phần đầu-->
@@ -26,7 +24,7 @@
             </Text>
 
             <!--nút thêm nhân viên-->
-            <Button layoutX="14.0" layoutY="91.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="197.0" styleClass="btn" text="Thêm nhân viên" textFill="WHITE" AnchorPane.leftAnchor="14.0" onAction="#kichNutThem" fx:id="btnThemNhanVien">
+            <Button fx:id="btnThemNhanVien" layoutX="14.0" layoutY="91.0" mnemonicParsing="false" onAction="#kichNutThem" prefHeight="45.0" prefWidth="197.0" styleClass="btn" text="Thêm nhân viên" textFill="WHITE" AnchorPane.leftAnchor="14.0">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>
@@ -42,68 +40,28 @@
             <String fx:value="shadow" />
          </styleClass>
       </AnchorPane>
-
-      <!--phần thân-->
-      <ScrollPane layoutX="38.0" layoutY="185.0" prefHeight="715.0" prefWidth="1300.0" stylesheets="@quanLiHoSoCSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="185.0">
-         <content>
-            <VBox prefHeight="110.0" prefWidth="1285.0" stylesheets="@quanLiHoSoCSS.css">
-               <children>
-
-               <!--bảng dữ liệu-->
-                  <TableView prefHeight="61.0" prefWidth="1285.0" stylesheets="@quanLiHoSoCSS.css">
-                    <columns>
-                      <TableColumn editable="false" prefWidth="58.0" resizable="false" text="STT" />
-                      <TableColumn editable="false" prefWidth="161.0" resizable="false" text="Mã nhân viên" />
-                        <TableColumn editable="false" prefWidth="193.0" resizable="false" text="Tên nhân viên" />
-                        <TableColumn editable="false" prefWidth="147.0" resizable="false" text="Loại nhân viên" />
-                        <TableColumn editable="false" prefWidth="153.0" resizable="false" text="Vị trí" />
-                        <TableColumn editable="false" prefWidth="161.0" resizable="false" text="Trạng thái hoạt động" />
-                        <TableColumn editable="false" prefWidth="194.0" resizable="false" text="Quyền truy cập" />
-                        <TableColumn editable="false" prefWidth="216.0" resizable="false" text="action" />
-                    </columns>
-                  </TableView>
-
-                  <!--nút phân trang-->
-                  <HBox alignment="CENTER" prefHeight="49.0" prefWidth="1294.0" spacing="5.0">
-                     <children>
-
-                     <!-- nút trang trước -->
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="btn" text="&lt;" textFill="WHITE" onAction="#previousPage" fx:id="btnPrevious">
-                           <font>
-                              <Font name="Open Sans Semibold" size="18.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-
-                        <!--số trang-->
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1" fx:id="soTrangText">
-                           <font>
-                              <Font name="Open Sans Semibold" size="20.0" />
-                           </font>
-                        </Text>
-
-                        <!--nút trang sau-->
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="btn" text="&gt;" textFill="WHITE" onAction="#nextPage" fx:id="btnNext">
-                           <font>
-                              <Font name="Open Sans Semibold" size="18.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-         </content>
-         <styleClass>
-            <String fx:value="radius" />
-            <String fx:value="shadow" />
-            <String fx:value="white-bg" />
-         </styleClass>
-      </ScrollPane>
       <Separator layoutX="3.0" layoutY="163.0" prefHeight="15.0" prefWidth="1290.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="7.0" />
+      <AnchorPane layoutY="185.0" prefHeight="715.0" prefWidth="1300.0">
+         <children>
+
+         <!--bảng dữ liệu-->
+            <TableView fx:id="tableViewQuanLiHoSo" prefHeight="690.0" prefWidth="1300.0" stylesheets="@quanLiHoSoCSS.css">
+              <columns>
+                <TableColumn fx:id="colSTT" editable="false" prefWidth="58.0" resizable="false" text="STT" />
+                <TableColumn fx:id="colMaNhanVien" editable="false" prefWidth="135.0" resizable="false" text="Mã nhân viên" />
+                  <TableColumn fx:id="colTenNhanVien" editable="false" prefWidth="226.0" resizable="false" text="Tên nhân viên" />
+                  <TableColumn fx:id="colLoaiNhanVien" editable="false" prefWidth="150.0" resizable="false" text="Loại nhân viên" />
+                  <TableColumn fx:id="colViTri" editable="false" prefWidth="150.0" resizable="false" text="Vị trí" />
+                  <TableColumn fx:id="colTrangThaiHoatDong" editable="false" prefWidth="170.0" resizable="false" text="Trạng thái hoạt động" />
+                  <TableColumn fx:id="colQuyenTruyCap" editable="false" prefWidth="242.0" resizable="false" text="Quyền truy cập" />
+                  <TableColumn fx:id="colAction" editable="false" prefWidth="167.0" resizable="false" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
    </children>
+   <stylesheets>
+      <URL value="@quanLiHoSoCSS.css" />
+      <URL value="@buttons.css" />
+   </stylesheets>
 </AnchorPane>

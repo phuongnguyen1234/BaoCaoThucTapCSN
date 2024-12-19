@@ -1,5 +1,8 @@
 package com.control;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +15,6 @@ public class DangNhapController {
     private Connection connection;
 
     public DangNhapController() throws Exception {
-        // Lấy kết nối từ DBConnection
         this.connection = DBConnection.getConnection();
     }
 
@@ -32,13 +34,28 @@ public class DangNhapController {
                     }
 
                     // Cập nhật trạng thái hoạt động
-                    capNhatTrangThaiHoatDong(email);
+                    capNhatTrangThaiHoatDong(email, "1");
 
                     // Tạo đối tượng NhanVien
                     NhanVien nhanVien = new NhanVien();
+                    nhanVien.setMaNhanVien(resultSet.getString("MaNhanVien"));
+                    nhanVien.setTenNhanVien(resultSet.getString("TenNhanVien"));
+
+                    // Lấy dữ liệu AnhChanDung từ BLOB
+                    Blob blob = resultSet.getBlob("AnhChanDung");
+                    if (blob != null) {
+                    try (InputStream inputStream = blob.getBinaryStream()) {
+                        
+                        // Chuyển dữ liệu từ InputStream thành byte[]
+                        byte[] anhChanDung = inputStream.readAllBytes();  // Hoặc sử dụng buffer nếu cần đọc lớn hơn
+                        nhanVien.setAnhChanDung(anhChanDung);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        throw new Exception("Lỗi khi đọc ảnh từ cơ sở dữ liệu!");
+                    }
+                    }
                     nhanVien.setEmail(email);
                     nhanVien.setQuyenTruyCap(resultSet.getString("QuyenTruyCap"));
-                    nhanVien.setTrangThaiHoatDong("1");
 
                     return nhanVien;
                 } else {
@@ -51,27 +68,13 @@ public class DangNhapController {
         }
     }
 
-    private void capNhatTrangThaiHoatDong(String email) throws SQLException {
-        String updateSql = "UPDATE NHANVIEN SET TrangThaiHoatDong = '1' WHERE Email = ?";
-        try (PreparedStatement updateStatement = connection.prepareStatement(updateSql)) {
-            updateStatement.setString(1, email);
-            updateStatement.executeUpdate();
-        }
-    }
-
-
-     // Phương thức đăng xuất
-    public static void dangXuat(String email) {
-        try (Connection conn = DBConnection.getConnection()) {
-            // Cập nhật trạng thái hoạt động khi người dùng đăng xuất
-            String sql = "UPDATE NHANVIEN SET TrangThaiHoatDong = '0' WHERE Email = ?";
-            try (PreparedStatement ps = conn.prepareStatement(sql)) {
-                ps.setString(1, email);
-                ps.executeUpdate();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    public static void capNhatTrangThaiHoatDong(String email, String trangThai) throws SQLException {
+        String updateSql = "UPDATE NHANVIEN SET TrangThaiHoatDong = ? WHERE Email = ?";
+        try (PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(updateSql)) {
+            preparedStatement.setString(1, trangThai);
+            preparedStatement.setString(2, email);
+            preparedStatement.executeUpdate();
+        } 
     }
 
 }

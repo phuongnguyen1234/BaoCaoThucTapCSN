@@ -54,17 +54,81 @@
     -fx-text-fill: #fff;
 }
 
-.table-column-header{
-    -fx-wrap-text: true;
-}
-
 .font-size-16{
     -fx-font-size: 16px;
 }
 
+.font-size-20{
+    -fx-font-size: 20px;
+}
+
 .table-cell{
-    -fx-alignment:center;
     -fx-font-family: "Open Sans";
     -fx-font-size: 16px;
-    -fx-wrap-text:true;
+    -fx-alignment: center;
+}
+
+.pagination .pagination-control .toggle-button{
+    -fx-background-color: transparent;
+    -fx-border-color: linear-gradient(to bottom right, #098c53, #246861);
+    -fx-border-radius: 3px;
+}
+
+.pagination .pagination-control .toggle-button:hover{
+    -fx-background-color: linear-gradient(to bottom right, #098c53, #246861);
+    -fx-text-fill: #fff;
+    -fx-cursor: hand;
+    -fx-border-radius: 3px;
+}
+
+.pagination > .pagination-control > .control-box > .left-arrow-button{
+    -fx-background-color: linear-gradient(to bottom right, #098c53, #246861);
+    -fx-border-radius: 3px;
+    -fx-text-fill: #fff;
+}
+
+.pagination > .pagination-control > .control-box > .right-arrow-button{
+    -fx-background-color: linear-gradient(to bottom right, #098c53, #246861);
+    -fx-border-radius: 3px;
+    -fx-text-fill: #fff;
+}
+
+.pagination .pagination-control .toggle-button:selected{
+    -fx-background-color: linear-gradient(to bottom right, #098c53, #246861);
+    -fx-text-fill: #fff;
+    -fx-border-radius: 3px;
+}
+
+.pagination > .pagination-control > .control-box > .left-arrow-button{
+    -fx-background-color: linear-gradient(to bottom right, #098c53, #246861);;
+    -fx-border-radius: 3px;
+    -fx-text-fill: #fff;
+}
+
+.pagination > .pagination-control > .control-box > .right-arrow-button:hover{
+    -fx-background-color: linear-gradient(to bottom right, #0fb565, #399a8f);
+    -fx-border-radius: 3px;
+    -fx-text-fill: #fff;
+    -fx-cursor: hand;
+
+}
+
+.pagination > .pagination-control > .control-box > .left-arrow-button:hover{
+    -fx-background-color: linear-gradient(to bottom right, #0fb565, #399a8f);
+    -fx-border-radius: 3px;
+    -fx-text-fill: #fff;
+    -fx-cursor: hand;
+}
+
+.combobox{
+    -fx-background-color: #fff;
+    -fx-border-color: #286155;
+    -fx-border-radius: 5px;
+    -fx-border-width: 1.5px;
+    -fx-cursor: hand;
+}
+
+.text-field{
+    -fx-border-color: #286155;
+    -fx-border-radius: 5px;
 }

@@ -13,29 +13,32 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" stylesheets="@donHangCSS.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="385.0" prefWidth="500.0" stylesheets="@thucDonCSS.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.view.ChinhSuaDonScreen">
    <children>
-      <VBox layoutX="84.0" layoutY="99.0" prefHeight="386.0" prefWidth="400.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox layoutX="84.0" layoutY="99.0" prefHeight="385.0" prefWidth="400.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox prefHeight="165.0" prefWidth="400.0" spacing="20.0">
                <children>
                   <VBox prefHeight="152.0" prefWidth="290.0" spacing="10.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mã cà phê:" wrappingWidth="289.130859375">
+                        <Text fx:id="maCaPheText" strokeType="OUTSIDE" strokeWidth="0.0" text="Mã cà phê:" wrappingWidth="289.130859375">
                            <font>
                               <Font name="Open Sans Semibold" size="20.0" />
                            </font>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tên:" wrappingWidth="287.03515625">
+
+                        <Text fx:id="tenCaPheText" strokeType="OUTSIDE" strokeWidth="0.0" text="Tên:" wrappingWidth="287.03515625">
                            <font>
                               <Font name="Open Sans Semibold" size="20.0" />
                            </font>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Đơn giá:" wrappingWidth="287.03515625">
+
+                        <Text fx:id="donGiaText" strokeType="OUTSIDE" strokeWidth="0.0" text="Đơn giá:" wrappingWidth="287.03515625">
                            <font>
                               <Font name="Open Sans Semibold" size="20.0" />
                            </font>
                         </Text>
+
                         <HBox prefHeight="21.0" prefWidth="250.0">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Số lượng:" wrappingWidth="94.03515625">
@@ -43,7 +46,8 @@
                                     <Font name="Open Sans Semibold" size="20.0" />
                                  </font>
                               </Text>
-                              <Spinner editable="true" prefHeight="28.0" prefWidth="239.0">
+
+                              <Spinner fx:id="soLuongSpinner" editable="true" prefHeight="28.0" prefWidth="70.0" styleClass="font-size-14">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></Spinner>
@@ -54,26 +58,30 @@
                         <Insets top="10.0" />
                      </padding>
                   </VBox>
-                  <ImageView fitHeight="180.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+
+                  <ImageView fx:id="anhMinhHoaImageView" fitHeight="160.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../icons/coffee.png" />
                      </image>
                   </ImageView>
                </children>
             </HBox>
+
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Yêu cầu đặc biệt:" wrappingWidth="168.03515625">
                <font>
                   <Font name="Open Sans Semibold" size="20.0" />
                </font>
             </Text>
-            <TextArea prefHeight="110.0" prefWidth="490.0" promptText="Ví dụ: Ít đá, nhiều sữa...">
+
+            <TextArea fx:id="yeuCauDacBietTextArea" prefHeight="110.0" prefWidth="490.0" promptText="Ví dụ: Ít đá, nhiều sữa..." wrapText="true">
                <font>
                   <Font name="Open Sans Semibold" size="18.0" />
                </font>
             </TextArea>
+
             <HBox alignment="CENTER" prefHeight="0.0" prefWidth="400.0" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" styleClass="btn" text="Thêm vào đơn" textFill="WHITE">
+                  <Button fx:id="btnCapNhat" mnemonicParsing="false" onAction="#kichNutCapNhat" styleClass="btn" text="Cập nhật" textFill="WHITE">
                      <font>
                         <Font name="Open Sans Semibold" size="20.0" />
                      </font>
@@ -81,7 +89,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button mnemonicParsing="false" styleClass="btn" text="Quay lại" textFill="WHITE">
+                  <Button fx:id="btnQuayLai" mnemonicParsing="false" onAction="#kichNutQuayLai" styleClass="btn" text="Quay lại" textFill="WHITE">
                      <font>
                         <Font name="Open Sans Semibold" size="20.0" />
                      </font>
@@ -93,7 +101,7 @@
             </HBox>
          </children>
          <padding>
-            <Insets left="5.0" right="5.0" />
+            <Insets left="10.0" right="10.0" />
          </padding>
       </VBox>
    </children>

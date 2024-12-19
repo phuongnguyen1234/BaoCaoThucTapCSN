@@ -9,8 +9,9 @@ public class NhanVien {
     private String gioiTinh;
     private LocalDate ngaySinh;
     private String queQuan;
+    private String diaChi;
     private String soDienThoai;
-    private String loainhanVien;
+    private String loaiNhanVien;
     private String viTri;
     private LocalDate thoiGianVaoLam;
     private int mucLuong;
@@ -22,7 +23,7 @@ public class NhanVien {
     public NhanVien(){}
 
     public NhanVien(String maNhanVien, String tenNhanVien, byte[] anhChanDung, String gioiTinh, 
-    LocalDate ngaySinh, String queQuan, String soDienThoai, String loainhanVien, String viTri,
+    LocalDate ngaySinh, String queQuan, String diaChi, String soDienThoai, String loaiNhanVien, String viTri,
     LocalDate thoiGianVaoLam, int mucLuong, String email, String matKhau, String quyenTruyCap, String trangThaiHoatDong) {
         this.maNhanVien = maNhanVien;
         this.tenNhanVien = tenNhanVien;
@@ -30,8 +31,9 @@ public class NhanVien {
         this.gioiTinh = gioiTinh;
         this.ngaySinh = ngaySinh;
         this.queQuan = queQuan;
+        this.diaChi = diaChi;
         this.soDienThoai = soDienThoai;
-        this.loainhanVien = loainhanVien;
+        this.loaiNhanVien = loaiNhanVien;
         this.viTri = viTri;
         this.thoiGianVaoLam = thoiGianVaoLam;
         this.mucLuong = mucLuong;
@@ -90,6 +92,14 @@ public class NhanVien {
         this.queQuan = queQuan;
     }
 
+    public String getDiaChi() {
+        return diaChi;
+    }
+
+    public void setDiaChi(String diaChi) {
+        this.diaChi = diaChi;
+    }
+
     public String getSoDienThoai() {
         return soDienThoai;
     }
@@ -98,12 +108,12 @@ public class NhanVien {
         this.soDienThoai = soDienThoai;
     }
 
-    public String getLoainhanVien() {
-        return loainhanVien;
+    public String getLoaiNhanVien() {
+        return loaiNhanVien;
     }
 
-    public void setLoainhanVien(String loainhanVien) {
-        this.loainhanVien = loainhanVien;
+    public void setLoaiNhanVien(String loaiNhanVien) {
+        this.loaiNhanVien = loaiNhanVien;
     }
 
     public String getViTri() {

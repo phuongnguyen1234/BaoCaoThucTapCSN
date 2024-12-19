@@ -1,6 +1,6 @@
 {
     "java.configuration.updateBuildConfiguration": "interactive",
     "java.project.referencedLibraries": [
-      "C:/Program Files/Java/javafx-sdk-23.0.1/lib/*.jar"
+      "H:/Downloads/openjfx-23.0.1_windows-x64_bin-sdk/javafx-sdk-23.0.1/lib/*.jar"
     ]
   }

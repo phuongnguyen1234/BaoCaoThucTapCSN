@@ -38,25 +38,25 @@
             </Text>
 
             <!--text field email-->
-            <TextField layoutX="25.0" layoutY="243.0" prefHeight="40.0" prefWidth="350.0" promptText="Email đăng nhập" styleClass="textfield" stylesheets="@dangNhapCSS.css" fx:id="emailTextField">
+            <TextField fx:id="emailTextField" layoutX="25.0" layoutY="243.0" prefHeight="40.0" prefWidth="350.0" promptText="Email đăng nhập" styleClass="textfield" stylesheets="@dangNhapCSS.css">
                <font>
                   <Font name="Open Sans" size="14.0" />
                </font>
             </TextField>
 
-            <!--nut dang nhap-->
-            <Button layoutX="25.0" layoutY="346.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="350.0" styleClass="login-btn" stylesheets="@dangNhapCSS.css" text="Đăng nhập" textFill="WHITE" onAction="#kichNutDangNhap" fx:id="btnDangNhap">
-               <font>
-                  <Font name="Open Sans Semibold" size="18.0" />
-               </font>
-            </Button>
-
             <!--password field-->
-            <PasswordField layoutX="25.0" layoutY="294.0" prefHeight="40.0" prefWidth="350.0" promptText="Mật khẩu" styleClass="textfield" stylesheets="@dangNhapCSS.css" fx:id="matKhauTextField">
+            <PasswordField fx:id="matKhauTextField" layoutX="25.0" layoutY="294.0" prefHeight="40.0" prefWidth="350.0" promptText="Mật khẩu" styleClass="textfield" stylesheets="@dangNhapCSS.css">
                <font>
                   <Font name="Open Sans" size="14.0" />
                </font>
             </PasswordField>
+
+            <!--nut dang nhap-->
+            <Button fx:id="btnDangNhap" layoutX="25.0" layoutY="346.0" mnemonicParsing="false" onAction="#kichNutDangNhap" prefHeight="40.0" prefWidth="350.0" styleClass="login-btn" stylesheets="@dangNhapCSS.css" text="Đăng nhập" textFill="WHITE">
+               <font>
+                  <Font name="Open Sans Semibold" size="18.0" />
+               </font>
+            </Button>  
          </children>
       </AnchorPane>
    </children>

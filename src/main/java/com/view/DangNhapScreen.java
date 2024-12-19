@@ -1,23 +1,22 @@
 package com.view;
 
+import java.io.IOException;
+
 import com.control.DangNhapController;
-import com.model.LuuEmail;
 import com.model.NhanVien;
-import javafx.event.ActionEvent;
+import com.model.SessionManager;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
 public class DangNhapScreen {
-
     @FXML
     private TextField emailTextField;
 
@@ -33,53 +32,64 @@ public class DangNhapScreen {
             dangNhapController = new DangNhapController();
         } catch (Exception e) {
             e.printStackTrace();
-            showError("Lỗi kết nối đến cơ sở dữ liệu!");
+            showError("Lỗi", "Lỗi kết nối đến cơ sở dữ liệu!", e.getMessage());
         }
     }
-
+    
     @FXML
-    private void kichNutDangNhap(ActionEvent event) {
+    private void kichNutDangNhap() {
         String email = emailTextField.getText().trim();
         String matKhau = matKhauTextField.getText().trim();
 
-        // Kiểm tra thông tin đầu vào
         if (email.isEmpty() || matKhau.isEmpty()) {
-            showError("Vui lòng nhập đầy đủ email và mật khẩu!");
+            showError("Lỗi", "Vui lòng nhập đầy đủ email và mật khẩu!", "Hãy chắc chắn rằng bạn đã điền cả hai trường.");
             return;
         }
 
         try {
             NhanVien nhanVien = dangNhapController.dangNhap(email, matKhau);
+            System.out.println("Đăng nhập thành công: " + nhanVien.getTenNhanVien());
+            System.out.println("Quyền truy cập: " + nhanVien.getQuyenTruyCap());
 
-            // Lưu email người dùng vào session
-            LuuEmail.setEmail(email);
+            // Tạo sessionId và lưu vào SessionManager
+            String sessionId = java.util.UUID.randomUUID().toString();
+            SessionManager.addSession(sessionId, nhanVien);
 
             // Chuyển sang màn hình chính
             if ("Admin".equalsIgnoreCase(nhanVien.getQuyenTruyCap())) {
-                System.out.println("Admin đăng nhập thành công!");
-                chuyenManHinh("/fxml/trangChuScreen.fxml", "Trang chủ (Admin)");
+                chuyenManHinh("/fxml/trangChuScreen.fxml", "Quản lí cà phê ABC - Admin");
             } else if ("User".equalsIgnoreCase(nhanVien.getQuyenTruyCap())) {
-                System.out.println("User đăng nhập thành công!");
-                chuyenManHinh("/fxml/trangChuScreen.fxml", "Trang chủ (User)");
+                chuyenManHinh("/fxml/trangChuScreen.fxml", "Quản lí cà phê ABC - User");
+            } else {
+                showError("Lỗi", "Quyền truy cập không hợp lệ!", "Hãy kiểm tra lại quyền truy cập của tài khoản.");
             }
+
         } catch (Exception e) {
-            showError(e.getMessage());
+            e.printStackTrace(); // Log lỗi để debug
+            showError("Lỗi", "Đăng nhập thất bại!", "Chi tiết lỗi: " + e.getMessage());
         }
     }
 
-    private void chuyenManHinh(String fxmlFile, String tieuDe) throws IOException {
-        Stage currentStage = (Stage) emailTextField.getScene().getWindow(); // Lấy Stage hiện tại
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
-        Parent root = loader.load();
-
-        currentStage.setScene(new Scene(root));
-        currentStage.setTitle(tieuDe); // Đặt tiêu đề cho màn hình mới
-        currentStage.show();
+    public void chuyenManHinh(String duongDanFXML, String tieuDe) throws Exception {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(duongDanFXML));
+            Parent root = loader.load();
+            Stage stage = (Stage) emailTextField.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle(tieuDe);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new Exception("Lỗi khi chuyển màn hình! Đường dẫn FXML không hợp lệ: " + duongDanFXML);
+        }
     }
 
-    private void showError(String message) {
+    private void showError(String tieuDe, String message, String chiTiet) {
         Alert alert = new Alert(AlertType.ERROR);
-        alert.setContentText(message);
+        alert.setTitle(tieuDe);
+        alert.setHeaderText(message);
+        alert.setContentText(chiTiet);
         alert.show();
     }
 }
+
