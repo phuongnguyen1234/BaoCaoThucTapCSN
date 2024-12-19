@@ -62,13 +62,12 @@ public class ChinhSuaBangLuongScreen {
             tenNhanVienText.setText("Tên nhân viên: " + bangLuong.getTenNhanVien());
             loaiNhanVienText.setText("Loại nhân viên: " + bangLuong.getLoaiNhanVien());
             viTriText.setText("Vị trí: " + bangLuong.getViTri());
-            thangText.setText("Tháng: " + bangLuong.getThang());
             ngayCongSpinner.getValueFactory().setValue(bangLuong.getSoNgayCong());
             nghiCoCongSpinner.getValueFactory().setValue(bangLuong.getSoNgayNghiCoCong());
             nghiKhongCongSpinner.getValueFactory().setValue(bangLuong.getSoNgayNghiKhongCong());
             gioLamThemSpinner.getValueFactory().setValue(bangLuong.getSoGioLamThem());
-            thangText.setText(bangLuong.getThang().toString());
-            soDonDaTaoText.setText("Số đơn đã tạo: " + String.valueOf(bangLuong.getThuongDoanhThu()));
+            thangText.setText("Tháng: " + bangLuong.getThang().toString());
+            soDonDaTaoText.setText("Số đơn đã tạo: " + String.valueOf(bangLuong.getSoLuongDonDaTao()));
             thuongDoanhThuText.setText("Thưởng doanh thu: " + String.valueOf(bangLuong.getThuongDoanhThu()));
             luongThucNhanText.setText("Lương thực nhận: " + String.valueOf(bangLuong.getLuongThucNhan()));
             ghiChuTextArea.setText(bangLuong.getGhiChu());

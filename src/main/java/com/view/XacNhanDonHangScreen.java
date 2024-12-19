@@ -86,7 +86,7 @@ public class XacNhanDonHangScreen {
     private void xacNhanThanhToan(ActionEvent event) {
         try {
             taoDonController.taoDonHang(donHang);
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Thông báo");
             alert.setHeaderText("Tạo đơn hàng thành công");
             alert.showAndWait();

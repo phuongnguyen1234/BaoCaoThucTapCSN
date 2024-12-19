@@ -15,7 +15,6 @@ import com.dto.DonHangDTO;
 import com.model.CaPhe;
 import com.model.DanhMuc;
 import com.model.NhanVien;
-import com.model.SessionManager;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -72,7 +71,7 @@ public class ThucDonScreen {
     private ComboBox<DanhMuc> danhMucCombobox;
 
     @FXML
-    private Button btnThemVaoThucDon;
+    private Button btnThemVaoThucDon, btnThanhToan;
 
     private DonHangDTO donHang; //bien luu data de hien thi len man hinh
 
@@ -256,6 +255,8 @@ public class ThucDonScreen {
         tableViewDatHang.setItems(taoDonController.layDanhSachCaPheTrongDon());
         tableViewDatHang.refresh();
         capNhatTongTien(danhSachCaPheTrongDon);
+        if(taoDonController.layDanhSachCaPheTrongDon().isEmpty()) btnThanhToan.setDisable(true);
+        else btnThanhToan.setDisable(false);
     }
     
 
@@ -412,7 +413,9 @@ public class ThucDonScreen {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Hóa Đơn");
             stage.setScene(new Scene(root));
+            stage.setResizable(false);
             stage.showAndWait();
+
         } catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Lỗi");
@@ -435,7 +438,9 @@ public class ThucDonScreen {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Thêm " + caPhe.getTenCaPhe() + " vào đơn");
             stage.setScene(new Scene(root));
+            stage.setResizable(false);
             stage.showAndWait();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -528,6 +533,7 @@ public class ThucDonScreen {
         // Cập nhật lại TableView
         tableViewDatHang.setItems(danhSachCaPheTrongDon);
         tableViewDatHang.refresh();
+        btnThanhToan.setDisable(true);
     
         // Cập nhật lại tổng tiền
         capNhatTongTien(danhSachCaPheTrongDon);

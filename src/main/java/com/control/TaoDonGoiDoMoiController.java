@@ -100,7 +100,32 @@ public class TaoDonGoiDoMoiController {
                 }
                 psChiTiet.executeBatch(); // Thực thi batch
             }
-    
+
+            //cap nhat so don da tao nhan vien do
+            String queryLaySoDonDaTao = "SELECT COUNT(*) AS SoLuongDonDaTao FROM DONHANG WHERE MaNhanVien = ? AND MONTH(ThoiGianDatHang) = MONTH(CURRENT_DATE()) AND YEAR(ThoiGianDatHang) = YEAR(CURRENT_DATE())";
+            int soDonDaTao=0;
+
+            try (PreparedStatement ps = connection.prepareStatement(queryLaySoDonDaTao)){
+                ps.setString(1, donHang.getMaNhanVien());
+
+                try (ResultSet rs = ps.executeQuery()){
+                    if(rs.next()){
+                        soDonDaTao = rs.getInt("SoLuongDonDaTao");
+                    }
+                }
+            }
+
+            if(!"NV000".equals(donHang.getMaNhanVien())){
+                String queryCapNhatSoDonDaTao = "UPDATE BANGLUONG SET SoLuongDonDaTao = ? WHERE MaNhanVien = ? AND DuocPhepChinhSua = '1'";
+                try (PreparedStatement ps = connection.prepareStatement(queryCapNhatSoDonDaTao)){
+                    ps.setInt(1, soDonDaTao);
+                    ps.setString(2, donHang.getMaNhanVien());
+                    ps.executeUpdate();
+                } 
+            } else {
+                System.out.println("ADMIN khong cap nhat bang luong!");
+            }
+
             // Commit transaction
             connection.commit();
             System.out.println("Thêm đơn hàng và chi tiết thành công!");

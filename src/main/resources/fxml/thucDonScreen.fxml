@@ -55,7 +55,8 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button id="btnDatLai" fx:id="btnThanhToan1" alignment="CENTER" contentDisplay="CENTER" layoutX="489.0" layoutY="770.0" mnemonicParsing="false" onAction="#datLai" prefHeight="30.0" prefWidth="82.0" styleClass="btn" stylesheets="@thucDonCSS.css" text="Đặt lại" textFill="WHITE">
+                  
+                  <Button id="btnDatLai" fx:id="btnDatLai" alignment="CENTER" contentDisplay="CENTER" layoutX="489.0" layoutY="770.0" mnemonicParsing="false" onAction="#datLai" prefHeight="30.0" prefWidth="82.0" styleClass="btn" stylesheets="@thucDonCSS.css" text="Đặt lại" textFill="WHITE">
                      <font>
                         <Font name="Open Sans Semibold" size="18.0" />
                      </font>

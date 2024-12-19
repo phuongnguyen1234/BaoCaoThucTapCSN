@@ -24,11 +24,11 @@
             <TableView fx:id="tableDonHang" prefHeight="635.0" prefWidth="1300.0">
                <columns>
                   <TableColumn fx:id="colSTT" prefWidth="79.0" text="STT" />
-                  <TableColumn fx:id="colMaDonHang" prefWidth="208.0" text="Mã Đơn Hàng" />
-                  <TableColumn fx:id="colNhanVienTaoDon" prefWidth="229.0" text="Nhân Viên Tạo Đơn" />
-                  <TableColumn fx:id="colTongTien" prefWidth="182.0" text="Tổng Tiền" />
-                  <TableColumn fx:id="colThoiGianDat" prefWidth="412.0" text="Thời Gian Đặt" />
-                  <TableColumn fx:id="colHanhDong" prefWidth="188.0" text="Hành Động" />
+                  <TableColumn fx:id="colMaDonHang" prefWidth="208.0" text="Mã đơn hàng" />
+                  <TableColumn fx:id="colNhanVienTaoDon" prefWidth="229.0" text="Nhân viên tạo đơn" />
+                  <TableColumn fx:id="colTongTien" prefWidth="182.0" text="Tổng tiền" />
+                  <TableColumn fx:id="colThoiGianDat" prefWidth="412.0" text="Thời gian đặt hàng" />
+                  <TableColumn fx:id="colHanhDong" prefWidth="188.0" />
                </columns>
             </TableView>
 

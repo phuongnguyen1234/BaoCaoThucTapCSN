@@ -183,6 +183,22 @@ public class TaoVaChinhSuaBangLuongController {
         YearMonth lastMonth = currentMonth.minusMonths(1);
 
         // Tính tổng doanh thu tháng trước
+        int totalRevenue = tinhTongDoanhThu(lastMonth);
+
+        // Mức doanh thu chỉ tiêu và thưởng doanh thu
+        double targetRevenue = 50000000;
+        int thuongDoanhThu = tinhThuongDoanhThu(totalRevenue, targetRevenue);
+
+        // Cập nhật bảng lương tháng trước
+        capNhatLuongThangTruoc(lastMonth, thuongDoanhThu);
+
+        // Tạo bảng lương mới cho tháng hiện tại
+        soLuongBangLuongMoi = taoBangLuongThangHienTai(currentMonth, thuongDoanhThu);
+
+        return soLuongBangLuongMoi;
+    }
+
+    private int tinhTongDoanhThu(YearMonth lastMonth) {
         String thuongQuery = "SELECT SUM(TongTien) FROM DONHANG WHERE MONTH(ThoiGianDatHang) = ? AND YEAR(ThoiGianDatHang) = ?";
         int totalRevenue = 0;
         try (PreparedStatement ps = connection.prepareStatement(thuongQuery)) {
@@ -193,24 +209,24 @@ public class TaoVaChinhSuaBangLuongController {
                 totalRevenue = rs.getInt(1);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println("Lỗi khi tính tổng doanh thu: " + e.getMessage());
         }
+        return totalRevenue;
+    }
 
-        // Mức doanh thu chỉ tiêu
-        double targetRevenue = 50000000;
-
-        // Tính thưởng doanh thu
-        int thuongDoanhThu = 0;
+    private int tinhThuongDoanhThu(int totalRevenue, double targetRevenue) {
         if (totalRevenue >= targetRevenue * 1.5) {
-            thuongDoanhThu = 1000000;
+            return 1000000;
         } else if (totalRevenue >= targetRevenue * 1.25) {
-            thuongDoanhThu = 500000;
+            return 500000;
         } else if (totalRevenue >= targetRevenue * 1.1) {
-            thuongDoanhThu = 200000;
+            return 200000;
         }
+        return 0;
+    }
 
-        // Cập nhật bảng lương tháng trước
-        String updateSalaryQuery = "SELECT bl.MaNhanVien, nv.MucLuong, bl.SoNgayCong, bl.SoGioLamThem, nv.LoaiNhanVien "
+    private void capNhatLuongThangTruoc(YearMonth lastMonth, int thuongDoanhThu) {
+        String updateSalaryQuery = "SELECT bl.MaNhanVien, nv.MucLuong, bl.SoNgayCong, bl.SoGioLamThem, nv.LoaiNhanVien, bl.SoLuongDonDaTao "
                 + "FROM BANGLUONG bl INNER JOIN NHANVIEN nv ON bl.MaNhanVien = nv.MaNhanVien WHERE bl.Thang = ?";
         try (PreparedStatement ps = connection.prepareStatement(updateSalaryQuery)) {
             ps.setDate(1, Date.valueOf(lastMonth.atDay(1)));
@@ -218,16 +234,15 @@ public class TaoVaChinhSuaBangLuongController {
 
             while (rs.next()) {
                 String maNhanVien = rs.getString("MaNhanVien");
+                if ("NV000".equals(maNhanVien)) continue; // Bỏ qua nếu là NV000
+
                 int mucLuong = rs.getInt("MucLuong");
                 int soNgayCong = rs.getInt("SoNgayCong");
                 int soGioLamThem = rs.getInt("SoGioLamThem");
                 String loaiNhanVien = rs.getString("LoaiNhanVien");
+                int soDonDaTao = laySoDonDaTao(maNhanVien, lastMonth);
 
-                int soGioLamMotNgay;
-                if("Full-time".equals(loaiNhanVien)){
-                    soGioLamMotNgay = 8;
-                } else soGioLamMotNgay = 5;
-
+                int soGioLamMotNgay = "Full-time".equals(loaiNhanVien) ? 8 : 5;
                 int soNgayLamThem = soGioLamThem / soGioLamMotNgay;
                 int soGioLamThemDu = soGioLamThem % soGioLamMotNgay;
                 int soTienLamThem = (int) (soGioLamThemDu * mucLuong);
@@ -238,23 +253,50 @@ public class TaoVaChinhSuaBangLuongController {
                 String ghiChu = String.format("Làm thêm %d giờ = %d ngày công + %d giờ. %d giờ = %d VND",
                         soGioLamThem, soNgayLamThem, soGioLamThemDu, soGioLamThemDu, soTienLamThem);
 
-                String updateLuongQuery = "UPDATE BANGLUONG SET SoNgayCong = ?, ThuongDoanhThu = ?, LuongThucNhan = ?, GhiChu = ?, DuocPhepChinhSua = ? WHERE MaNhanVien = ? AND Thang = ?";
-                try (PreparedStatement updatePs = connection.prepareStatement(updateLuongQuery)) {
-                    updatePs.setInt(1, soNgayCong);
-                    updatePs.setInt(2, thuongDoanhThu);
-                    updatePs.setInt(3, luongThucNhan);
-                    updatePs.setString(4, ghiChu);
-                    updatePs.setInt(5, 0); // Không được phép chỉnh sửa
-                    updatePs.setString(6, maNhanVien);
-                    updatePs.setDate(7, Date.valueOf(lastMonth.atDay(1)));
-                    updatePs.executeUpdate();
-                }
+                capNhatBangLuong(maNhanVien, lastMonth, soNgayCong, thuongDoanhThu, luongThucNhan, ghiChu, soDonDaTao);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println("Lỗi khi cập nhật lương tháng trước: " + e.getMessage());
         }
+    }
 
-        // Tạo bảng lương mới cho tháng hiện tại
+    private int laySoDonDaTao(String maNhanVien, YearMonth lastMonth) {
+        String query = "SELECT COUNT(*) AS SoDonDaTao FROM DONHANG WHERE MaNhanVien = ? AND MONTH(ThoiGianDatHang) = ? AND YEAR(ThoiGianDatHang) = ?";
+        int soDonDaTao = 0;
+        try (PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setString(1, maNhanVien);
+            ps.setInt(2, lastMonth.getMonthValue());
+            ps.setInt(3, lastMonth.getYear());
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                soDonDaTao = rs.getInt("SoDonDaTao");
+            }
+        } catch (SQLException e) {
+            System.err.println("Lỗi khi lấy số đơn đã tạo: " + e.getMessage());
+        }
+        return soDonDaTao;
+    }
+
+    private void capNhatBangLuong(String maNhanVien, YearMonth lastMonth, int soNgayCong, int thuongDoanhThu,
+                                int luongThucNhan, String ghiChu, int soDonDaTao) {
+        String updateQuery = "UPDATE BANGLUONG SET SoNgayCong = ?, ThuongDoanhThu = ?, LuongThucNhan = ?, GhiChu = ?, DuocPhepChinhSua = ?, SoLuongDonDaTao = ? WHERE MaNhanVien = ? AND Thang = ?";
+        try (PreparedStatement ps = connection.prepareStatement(updateQuery)) {
+            ps.setInt(1, soNgayCong);
+            ps.setInt(2, thuongDoanhThu);
+            ps.setInt(3, luongThucNhan);
+            ps.setString(4, ghiChu);
+            ps.setInt(5, 0);
+            ps.setInt(6, soDonDaTao);
+            ps.setString(7, maNhanVien);
+            ps.setDate(8, Date.valueOf(lastMonth.atDay(1)));
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            System.err.println("Lỗi khi cập nhật bảng lương: " + e.getMessage());
+        }
+    }
+
+    private int taoBangLuongThangHienTai(YearMonth currentMonth, int thuongDoanhThu) {
+        int soLuongBangLuongMoi = 0;
         String getEmployeesQuery = "SELECT * FROM NHANVIEN WHERE MaNhanVien != 'NV000'";
         try (Statement stmt = connection.createStatement(); ResultSet rs = stmt.executeQuery(getEmployeesQuery)) {
             while (rs.next()) {
@@ -270,34 +312,32 @@ public class TaoVaChinhSuaBangLuongController {
                     if (checkRs.next() && checkRs.getInt(1) == 0) {
                         String maBangLuong = generateMaBangLuong();
                         int soNgayCong = loaiNhanVien.equalsIgnoreCase("Full-time") ? 28 : 20;
-
                         int soGioLamMotNgay = loaiNhanVien.equalsIgnoreCase("Full-time") ? 8 : 5;
 
-                        String insertSalaryQuery = "INSERT INTO BANGLUONG (MaBangLuong, MaNhanVien, Thang, SoNgayCong, SoNgayNghiCoCong, SoNgayNghiKhongCong, SoGioLamThem, SoLuongDonDaTao, ThuongDoanhThu, LuongThucNhan, GhiChu, DuocPhepChinhSua)"
+                        String insertQuery = "INSERT INTO BANGLUONG (MaBangLuong, MaNhanVien, Thang, SoNgayCong, SoNgayNghiCoCong, SoNgayNghiKhongCong, SoGioLamThem, ThuongDoanhThu, LuongThucNhan, GhiChu, SoLuongDonDaTao, DuocPhepChinhSua) "
                                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-                        try (PreparedStatement insertPs = connection.prepareStatement(insertSalaryQuery)) {
-                            insertPs.setString(1, maBangLuong);
-                            insertPs.setString(2, maNhanVien);
-                            insertPs.setDate(3, Date.valueOf(currentMonth.atDay(1)));
-                            insertPs.setInt(4, soNgayCong);
-                            insertPs.setInt(5, 0);
-                            insertPs.setInt(6, 0);
-                            insertPs.setInt(7, 0);
-                            insertPs.setInt(8, 0);
-                            insertPs.setInt(9, 0);
-                            insertPs.setInt(10, mucLuong * soNgayCong * soGioLamMotNgay + thuongDoanhThu);
-                            insertPs.setString(11, "");
-                            insertPs.setInt(12, 1);
-                            insertPs.executeUpdate();
+                        try (PreparedStatement ps = connection.prepareStatement(insertQuery)) {
+                            ps.setString(1, maBangLuong);
+                            ps.setString(2, maNhanVien);
+                            ps.setDate(3, Date.valueOf(currentMonth.atDay(1)));
+                            ps.setInt(4, soNgayCong);
+                            ps.setInt(5, 0);
+                            ps.setInt(6, 0);
+                            ps.setInt(7, 0);
+                            ps.setInt(8, thuongDoanhThu);
+                            ps.setInt(9, mucLuong * soNgayCong * soGioLamMotNgay + thuongDoanhThu);
+                            ps.setString(10, "Tháng mới khởi tạo");
+                            ps.setInt(11, 0);
+                            ps.setInt(12, 1);
+                            ps.executeUpdate();
                             soLuongBangLuongMoi++;
                         }
                     }
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println("Lỗi khi tạo bảng lương tháng hiện tại: " + e.getMessage());
         }
-
         return soLuongBangLuongMoi;
     }
 
