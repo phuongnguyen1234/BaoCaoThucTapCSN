@@ -95,6 +95,10 @@ public class ThucDonScreen {
         this.capNhatThucDonController = capNhatThucDonController;
     }
 
+    public CapNhatThucDonController getCapNhatThucDonController(){
+        return capNhatThucDonController;
+    }
+
     public void setNhanVien(NhanVien nhanVien){
         this.nhanVien = nhanVien;
     }

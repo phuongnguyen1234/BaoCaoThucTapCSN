@@ -8,8 +8,6 @@ import java.util.List;
 
 import javax.imageio.ImageIO;
 
-import com.control.CapNhatThucDonController;
-import com.control.TaoDonGoiDoMoiController;
 import com.model.CaPhe;
 import com.model.DanhMuc;
 
@@ -100,70 +98,61 @@ public class ThemVaoThucDonScreen {
             caPhe = new CaPhe(); // Tạo đối tượng mới nếu chưa khởi tạo
         }
 
+        int donGia = 0;
+
+        // Kiểm tra và gán giá trị từ giao diện
+        if (tenCaPheTextField.getText().isEmpty()) {
+            showErrorAlert("Tên cà phê không được để trống!");
+            return;
+        }
+
         try {
-            // Kiểm tra và gán giá trị từ giao diện
-            if (tenCaPheTextField.getText().isEmpty()) {
-                throw new IllegalArgumentException("Tên cà phê không được để trống!");
+            donGia = Integer.parseInt(donGiaTextField.getText());
+            if (donGia <= 0) {
+                showErrorAlert("Đơn giá phải lớn hơn 0!");
+                return;
             }
-            caPhe.setTenCaPhe(tenCaPheTextField.getText());
+        } catch (NumberFormatException e) {
+            showErrorAlert("Đơn giá phải là một số nguyên hợp lệ!");
+            return;
+        }
 
-            try {
-                int donGia = Integer.parseInt(donGiaTextField.getText());
-                if (donGia <= 0) throw new IllegalArgumentException("Đơn giá phải lớn hơn 0!");
-                caPhe.setDonGia(donGia);
-            } catch (NumberFormatException e) {
-                throw new IllegalArgumentException("Đơn giá phải là một số nguyên hợp lệ!");
-            }
-
-            if (danhMucCombobox.getValue() == null) {
-                throw new IllegalArgumentException("Vui lòng chọn danh mục!");
-            }
-            caPhe.setMaDanhMuc(danhMucCombobox.getValue().getMaDanhMuc());
+        if (danhMucCombobox.getValue() == null) {
+            showErrorAlert("Vui lòng chọn danh mục!");
+            return;
+        }
 
             // Xử lý ảnh
-            if (anhMinhHoaImageView.getImage() != null) {
-                try (ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream()) {
-                    ImageIO.write(SwingFXUtils.fromFXImage(anhMinhHoaImageView.getImage(), null), "png", byteArrayOutputStream);
-                    caPhe.setAnhMinhHoa(byteArrayOutputStream.toByteArray());
-                } catch (IOException e) {
-                    throw new RuntimeException("Lỗi khi xử lý ảnh minh họa!");
-                }
-            } else {
-                caPhe.setAnhMinhHoa(null);
+        if (anhMinhHoaImageView.getImage() != null) {
+            try (ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream()) {
+                ImageIO.write(SwingFXUtils.fromFXImage(anhMinhHoaImageView.getImage(), null), "png", byteArrayOutputStream);
+                caPhe.setAnhMinhHoa(byteArrayOutputStream.toByteArray());
+            } catch (IOException e) {
+                showErrorAlert("Lỗi khi xử lý ảnh minh họa!");
+                return;
             }
-
-            // Thêm cà phê vào thực đơn
-            CapNhatThucDonController controller = new CapNhatThucDonController();
-            controller.themCaPhe(caPhe);
-
-            // Cập nhật giao diện
-            if (thucDonScreen != null) {
-                TaoDonGoiDoMoiController controller1 = new TaoDonGoiDoMoiController();
-                thucDonScreen.hienThiThucDon(controller1.layThucDon("all"));
-            }
-
-            // Thông báo thành công
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Thành công");
-            alert.setHeaderText(null);
-            alert.setContentText("Thêm cà phê vào thực đơn thành công!");
-            alert.showAndWait();
-
-        } catch (IllegalArgumentException e) {
-            // Hiển thị thông báo lỗi
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Lỗi nhập liệu");
-            alert.setHeaderText("Dữ liệu không hợp lệ");
-            alert.setContentText(e.getMessage());
-            alert.showAndWait();
-        } catch (Exception e) {
-            e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Lỗi hệ thống");
-            alert.setHeaderText("Đã xảy ra lỗi");
-            alert.setContentText("Vui lòng thử lại sau!");
-            alert.showAndWait();
+        } else {
+            caPhe.setAnhMinhHoa(null);
         }
+
+        caPhe.setTenCaPhe(tenCaPheTextField.getText());
+        caPhe.setDonGia(donGia);
+        caPhe.setMaDanhMuc(danhMucCombobox.getValue().getMaDanhMuc());
+
+        // Thêm cà phê vào thực đơn
+        thucDonScreen.getCapNhatThucDonController().themCaPhe(caPhe);
+
+        // Cập nhật giao diện
+        thucDonScreen.hienThiThucDon(thucDonScreen.getTaoDonController().layThucDon("all"));
+
+
+        // Thông báo thành công
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Thành công");
+        alert.setHeaderText(null);
+        alert.setContentText("Thêm cà phê vào thực đơn thành công!");
+        alert.showAndWait();
+
         // Ẩn cửa sổ sau khi cập nhật
         tenCaPheTextField.getScene().getWindow().hide();
     }
@@ -201,6 +190,15 @@ public class ThemVaoThucDonScreen {
                 System.err.println("Không thể tải ảnh: " + e.getMessage());
             }
         }
+    }
+
+    // Phương thức hiển thị thông báo lỗi
+    private void showErrorAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Lỗi");
+        alert.setHeaderText("Thông báo lỗi");
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
 }

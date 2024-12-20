@@ -275,8 +275,8 @@ private void updateComboBoxesSafely(Runnable updateAction) {
         return;
     }
 
-     // Kiểm tra độ dài tên nhân viên
-     if (tenNhanVien.length() < 3) {
+    // Kiểm tra độ dài tên nhân viên
+    if (tenNhanVien.length() < 3) {
         showErrorAlert("Tên nhân viên phải có ít nhất 3 ký tự.");
         return;
     }
